@@ -31,7 +31,7 @@ CREATE TABLE VIC.vaccine_components (
                 component_id INTEGER NOT NULL DEFAULT nextval('VIC.vaccine_components_component_id_seq'),
                 vaccine_id INTEGER NOT NULL,
                 vaccine_component VARCHAR(100) NOT NULL,
-                dose NUMERIC(3,3) NOT NULL,
+                dose NUMERIC(3) NOT NULL,
                 dose_measurement VARCHAR(3) NOT NULL,
                 CONSTRAINT vaccine_component_id PRIMARY KEY (component_id, vaccine_id)
 );
