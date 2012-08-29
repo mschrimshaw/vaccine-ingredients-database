@@ -15,6 +15,7 @@ insert into vic.vaccine_type (name) values ('MMR');\
 insert into vic.vaccine_type (name) values ('MMRV');\
 insert into vic.vaccine_type (name) values ('Varicella');\
 insert into vic.vaccine_type (name) values ('Hep-B');\
+insert into vic.vaccine_type (name) values ('Hep-A');\
 insert into vic.vaccine_type (name) values ('Influenza');\
 insert into vic.vaccine_type (name) values ('DTaP/Hib');\
 insert into vic.vaccine_type (name) values ('HPV-4');\
@@ -27,10 +28,10 @@ insert into vic.disease (disease, vaccine_type_id) values ('Measles',4), ('Mumps
 insert into vic.disease (disease, vaccine_type_id) values ('Varicella',5);\
 \
 --insert into vic.disease (disease, vaccine_type_id) values ('Hepatitis B',6);\
+--insert into vic.disease (disease, vaccine_type_id) values ('Hepatitis A',7);\
 \
-\
-insert into vic.vaccines (vaccine_name, manufacturer_id, vaccine_type_id, combo_vaccine, dose) values ('Tripedia',1,1,'0',0.5);\
-insert into vic.vaccines (vaccine_name, manufacturer_id, vaccine_type_id, combo_vaccine, dose) values ('Infanrix',2,1,'0',0.5);\
+insert into vic.vaccines (vaccine_name, manufacturer_id, vaccine_type_id, combo_vaccine, dose) values ('Tripedia',1,1,'1',0.5);\
+insert into vic.vaccines (vaccine_name, manufacturer_id, vaccine_type_id, combo_vaccine, dose) values ('Infanrix',2,1,'1',0.5);\
 insert into vic.vaccines (vaccine_name, manufacturer_id, vaccine_type_id, combo_vaccine, dose) values ('ActHIB',1,2,'1',0.5);\
 insert into vic.vaccines (vaccine_name, manufacturer_id, vaccine_type_id, combo_vaccine, dose) values ('TriHIBit',1,2,'1',0.5);\
 insert into vic.vaccines (vaccine_name, manufacturer_id, vaccine_type_id, combo_vaccine, dose) values ('MMR',3,3,'1',0.5);\
