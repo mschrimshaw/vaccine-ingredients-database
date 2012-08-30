@@ -1,3 +1,8 @@
+DROP TABLE VIC.vaccines;
+DROP TABLE VIC.disease;
+DROP TABLE VIC.manufacturer;
+DROP TABLE VIC.vaccine_components;
+DROP TABLE VIC.vaccine_type;
 
 CREATE SEQUENCE VIC.vaccine_type_id_seq;
 
