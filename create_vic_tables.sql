@@ -1,17 +1,14 @@
-DROP TABLE VIC.vaccines;
-DROP TABLE VIC.disease;
-DROP TABLE VIC.manufacturer;
-DROP TABLE VIC.vaccine_components;
-DROP TABLE VIC.vaccine_type;
 
 CREATE SEQUENCE VIC.vaccine_type_id_seq;
 
 CREATE TABLE VIC.vaccine_type (
                 vaccine_type_id INTEGER NOT NULL DEFAULT nextval('VIC.vaccine_type_id_seq'),
                 name VARCHAR(25) NOT NULL,
+                CVX SMALLINT NOT NULL,
                 CONSTRAINT vaccine_type_id PRIMARY KEY (vaccine_type_id)
 );
 COMMENT ON TABLE VIC.vaccine_type IS 'Vaccine types (DTaP, Hib, MMR, etc)';
+COMMENT ON COLUMN VIC.vaccine_type.CVX IS 'CDC CVX code for vaccine type';
 
 
 ALTER SEQUENCE VIC.vaccine_type_id_seq OWNED BY VIC.vaccine_type.vaccine_type_id;
@@ -54,10 +51,12 @@ CREATE SEQUENCE VIC.manufacturer_manufacturer_id_seq;
 CREATE TABLE VIC.manufacturer (
                 manufacturer_id INTEGER NOT NULL DEFAULT nextval('VIC.manufacturer_manufacturer_id_seq'),
                 company_name VARCHAR(50) NOT NULL,
+                MVX VARCHAR(3) NOT NULL,
                 CONSTRAINT manufacturer_id PRIMARY KEY (manufacturer_id)
 );
 COMMENT ON TABLE VIC.manufacturer IS 'vaccine manufacturers';
 COMMENT ON COLUMN VIC.manufacturer.company_name IS 'vaccine manufacturer company';
+COMMENT ON COLUMN VIC.manufacturer.MVX IS 'CDC MVX manufacturer code';
 
 
 ALTER SEQUENCE VIC.manufacturer_manufacturer_id_seq OWNED BY VIC.manufacturer.manufacturer_id;
