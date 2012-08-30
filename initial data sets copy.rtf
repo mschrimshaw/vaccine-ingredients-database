@@ -5,28 +5,41 @@
 \margl1440\margr1440\vieww17200\viewh11060\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
-\f0\fs24 \cf0 insert into vic.manufacturer (company_name) values ('Sanofi Pasteur SA');\
-insert into vic.manufacturer (company_name) values ('GlaxoSmithKline');\
-insert into vic.manufacturer (company_name) values ('Merck');\
+\f0\fs24 \cf0 insert into vic.manufacturer (company_name, MVX) values ('Sanofi Pasteur SA', 'PMC');\
+insert into vic.manufacturer (company_name, MVX) values ('GlaxoSmithKline', 'SKB');\
+insert into vic.manufacturer (company_name, MVX) values ('Merck', 'MSD');\
 \
+insert into vic.vaccine_type (name,CVX) values ('DTaP',20);\
+insert into vic.vaccine_type (name,CVX) values ('DTaP-Hib',50);\
+insert into vic.vaccine_type (name,CVX) values ('DTaP-Hep B,IPV',110);\
+insert into vic.vaccine_type (name,CVX) values ('DTaP-IPV',130);\
+insert into vic.vaccine_type (name,CVX) values ('DTaP-Hib-IPV',120);\
+insert into vic.vaccine_type (name,CVX) values ('Hib',48);\
+insert into vic.vaccine_type (name,CVX) values ('Hib',49);\
+insert into vic.vaccine_type (name,CVX) values ('Hib-Hep B',51);\
+insert into vic.vaccine_type (name,CVX) values ('MMR',03);\
+insert into vic.vaccine_type (name,CVX) values ('MMRV',94);\
+insert into vic.vaccine_type (name,CVX) values ('Varicella',21);\
+insert into vic.vaccine_type (name,CVX) values ('Hep B',08);\
+insert into vic.vaccine_type (name,CVX) values ('Hep B',42);\
+insert into vic.vaccine_type (name,CVX) values ('Hep B',43);\
+insert into vic.vaccine_type (name,CVX) values ('HPV-4',62);\
+insert into vic.vaccine_type (name,CVX) values ('HPV-2',118);\
+insert into vic.vaccine_type (name,CVX) values ('IPV',10);\
+insert into vic.vaccine_type (name,CVX) values ('PCV13',133);\
+insert into vic.vaccine_type (name,CVX) values ('PCV7',100);\
+insert into vic.vaccine_type (name,CVX) values ('PCV23',33);\
 \
-insert into vic.vaccine_type (name) values ('DTaP');\
-insert into vic.vaccine_type (name) values ('Hib');\
-insert into vic.vaccine_type (name) values ('MMR');\
-insert into vic.vaccine_type (name) values ('MMRV');\
-insert into vic.vaccine_type (name) values ('Varicella');\
-insert into vic.vaccine_type (name) values ('Hep-B');\
-insert into vic.vaccine_type (name) values ('Hep-A');\
-insert into vic.vaccine_type (name) values ('Influenza');\
-insert into vic.vaccine_type (name) values ('DTaP/Hib');\
-insert into vic.vaccine_type (name) values ('HPV-4');\
-insert into vic.vaccine_type (name) values ('DTaP/Hep-B,IPV')\
+-- insert into vic.vaccine_type (name,CVX) values ('Hep A');\
+-- insert into vic.vaccine_type (name,CVX) values ('Influenza');\
+\
 \
 insert into vic.disease (disease, vaccine_type_id) values ('Pertussis',1), ('Diphtheria',1), ('Tetanus',1);\
 insert into vic.disease (disease, vaccine_type_id) values ('Hib',2);\
 insert into vic.disease (disease, vaccine_type_id) values ('Measles',3), ('Mumps',3), ('Rubella',3);\
 insert into vic.disease (disease, vaccine_type_id) values ('Measles',4), ('Mumps',4), ('Rubella',4), ('Varicella',4);\
 insert into vic.disease (disease, vaccine_type_id) values ('Varicella',5);\
+insert into vic.disease (disease, vaccine_type_id) values ('Pneumococcal',6);\
 \
 \
 --insert into vic.disease (disease, vaccine_type_id) values ('Hepatitis B',6);\
@@ -41,6 +54,7 @@ insert into vic.vaccines (vaccine_name, manufacturer_id, vaccine_type_id, combo_
 insert into vic.vaccines (vaccine_name, manufacturer_id, vaccine_type_id, combo_vaccine, dose) values ('HPV-4',3,8,'0',0.5);\
 insert into vic.vaccines (vaccine_name, manufacturer_id, vaccine_type_id, combo_vaccine, dose) values ('Daptecel',1,1,'1',0.5);\
 insert into vic.vaccines (vaccine_name, manufacturer_id, vaccine_type_id, combo_vaccine, dose) values ('Pediarix',2,10,'1',0.5);\
+insert into vic.vaccines (vaccine_name, manufacturer_id, vaccine_type_id, combo_vaccine, dose) values ('Kinrix',2,10,'1',0.5);\
 \
 \
 -- tripedia \
@@ -126,4 +140,26 @@ insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_me
 \pard\pardeftab720
 
 \f0\fs24 \cf0 \
+-- Kinrix \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0 insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (11,'pertussis antigen',0.025,'mg');\
+insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (11,'pertactin',0.008,'mg');\
+insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (11,'diptheria toxoid',25,'Lf');\
+insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (11,'tetanus toxoid',10,'Lf');\
+insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (11,'formaldehyde',0.100,'mg');\
+insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (11,'aluminum hydroxide/phosphate',0.085,'mg');\
+insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (11,'sodium chloride',4.5,'mg');\
+insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (11,'polysorbate 80',0.100,'mg');\
+insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (11,'bovine extract',0,'mg');\
+insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (11,'Type 1 Polio Virus/Mahoney',40,'DU');\
+insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (11,'Type 2 Polio Virus/MEF-1',8,'DU');\
+insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (11,'Type 3 Polio Virus/Saukett',32,'DU');\
+insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (11,'Neomycin',0.05,'ng');\
+insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (11,'Polymyxin-B',0.01,'ng');\
+\pard\pardeftab720
+\cf0 \
+\
+\
+\
 }
