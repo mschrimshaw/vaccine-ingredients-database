@@ -50,5 +50,3 @@ insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_me
 insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (4,'tetanus toxoid',5,'Lf');
 insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (4,'Hib polysaccharide',0.010,'mg');
 insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (4,'tetanus toxoid conjugate',0.024,'mg');
-
-}
