@@ -8,7 +8,7 @@ CREATE SEQUENCE VIC.vaccine_type_id_seq;
 
 CREATE TABLE VIC.vaccine_type (
                 vaccine_type_id INTEGER NOT NULL DEFAULT nextval('VIC.vaccine_type_id_seq'),
-                name VARCHAR(10) NOT NULL,
+                name VARCHAR(25) NOT NULL,
                 CONSTRAINT vaccine_type_id PRIMARY KEY (vaccine_type_id)
 );
 COMMENT ON TABLE VIC.vaccine_type IS 'Vaccine types (DTaP, Hib, MMR, etc)';
@@ -72,6 +72,7 @@ CREATE TABLE VIC.vaccines (
                 combo_vaccine BIT NOT NULL,
                 dose NUMERIC(3,1) DEFAULT 0.5 NOT NULL,
                 dose_measurement VARCHAR(3) DEFAULT 'ml' NOT NULL,
+                current_as_of TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
                 CONSTRAINT vaccines_id PRIMARY KEY (vaccine_id, manufacturer_id)
 );
 COMMENT ON TABLE VIC.vaccines IS 'vaccine base table';
