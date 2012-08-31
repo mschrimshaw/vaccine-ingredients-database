@@ -175,7 +175,7 @@ ALTER SEQUENCE manufacturer_manufacturer_id_seq OWNED BY manufacturer.manufactur
 -- Name: manufacturer_manufacturer_id_seq; Type: SEQUENCE SET; Schema: vic; Owner: mschrimshaw
 --
 
-SELECT pg_catalog.setval('manufacturer_manufacturer_id_seq', 3, true);
+SELECT pg_catalog.setval('manufacturer_manufacturer_id_seq', 6, true);
 
 
 --
@@ -198,7 +198,8 @@ CREATE TABLE vaccine_components (
     vaccine_id integer NOT NULL,
     vaccine_component character varying(100) NOT NULL,
     dose numeric NOT NULL,
-    dose_measurement character varying(3) NOT NULL
+    dose_measurement character varying(3) NOT NULL,
+    current_as_of timestamp without time zone DEFAULT now()
 );
 
 
@@ -473,6 +474,9 @@ COPY manufacturer (manufacturer_id, company_name, mvx) FROM stdin;
 1	Sanofi Pasteur SA	PMC
 2	GlaxoSmithKline	SKB
 3	Merck	MSD
+4	Pfizer	PFR
+5	Novartis	NOV
+6	MedImmune	MED
 \.
 
 
@@ -490,68 +494,68 @@ COPY test (a) FROM stdin;
 -- Data for Name: vaccine_components; Type: TABLE DATA; Schema: vic; Owner: mschrimshaw
 --
 
-COPY vaccine_components (component_id, vaccine_id, vaccine_component, dose, dose_measurement) FROM stdin;
-1	1	formaldehyde	0.100	mg
-2	1	thimerosal	0.03	mg
-3	1	pertussis antigen	0.0468	mg
-4	1	diptheria toxoid	6.7	Lf
-5	1	aluminum potassium sulfate	0.170	mg
-6	1	tetanus toxoid	5	Lf
-7	1	polysorbate 80	0	mg
-8	1	gelatin	0	mg
-9	4	formaldehyde	0.100	mg
-10	4	thimerosal	0.03	mg
-11	4	pertussis antigen	0.0468	mg
-12	4	diptheria toxoid	6.7	Lf
-13	4	aluminum potassium sulfate	0.170	mg
-14	4	tetanus toxoid	5	Lf
-15	4	Hib polysaccharide	0.010	mg
-16	4	tetanus toxoid conjugate	0.024	mg
-17	2	pertussis antigen	0.025	mg
-18	2	pertactin	0.008	mg
-19	2	diptheria toxoid	25	Lf
-20	2	tetanus toxoid	10	Lf
-21	2	aluminum hydroxide	0.625	mg
-22	2	formaldehyde	0.100	mg
-23	2	polysorbate 80	0.100	mg
-24	2	bovine extract	0	mg
-25	2	sodium chloride	4.5	mg
-26	8	pertussis antigen	0.010	mg
-27	8	pertactin	0.003	mg
-28	8	diptheria toxoid	15	Lf
-29	8	tetanus toxoid	5	Lf
-30	8	formaldehyde	0.005	mg
-31	8	2-phenoxyethanol	3.3	mg
-32	8	aluminum phosphate	1.5	mg
-33	9	pertussis antigen	0.025	mg
-34	9	pertactin	0.008	mg
-35	9	diptheria toxoid	25	Lf
-36	9	tetanus toxoid	10	Lf
-37	9	formaldehyde	0.100	mg
-38	9	aluminum hydroxide/phosphate	0.085	mg
-39	9	sodium chloride	4.5	mg
-40	9	polysorbate 80	0.100	mg
-41	9	bovine extract	0	mg
-42	9	Hep-B surface antigens	0.010	mg
-43	9	Type 1 Polio Virus/Mahoney	40	DU
-44	9	Type 2 Polio Virus/MEF-1	8	DU
-45	9	Type 3 Polio Virus/Saukett	32	DU
-46	9	Neomycin	0.05	ng
-47	9	Polymyxin-B	0.01	ng
-48	11	pertussis antigen	0.025	mg
-49	11	pertactin	0.008	mg
-50	11	diptheria toxoid	25	Lf
-51	11	tetanus toxoid	10	Lf
-52	11	formaldehyde	0.100	mg
-53	11	aluminum hydroxide/phosphate	0.085	mg
-54	11	sodium chloride	4.5	mg
-55	11	polysorbate 80	0.100	mg
-56	11	bovine extract	0	mg
-57	11	Type 1 Polio Virus/Mahoney	40	DU
-58	11	Type 2 Polio Virus/MEF-1	8	DU
-59	11	Type 3 Polio Virus/Saukett	32	DU
-60	11	Neomycin	0.05	ng
-61	11	Polymyxin-B	0.01	ng
+COPY vaccine_components (component_id, vaccine_id, vaccine_component, dose, dose_measurement, current_as_of) FROM stdin;
+1	1	formaldehyde	0.100	mg	2012-08-30 19:57:46.404868
+2	1	thimerosal	0.03	mg	2012-08-30 19:57:46.404868
+3	1	pertussis antigen	0.0468	mg	2012-08-30 19:57:46.404868
+4	1	diptheria toxoid	6.7	Lf	2012-08-30 19:57:46.404868
+5	1	aluminum potassium sulfate	0.170	mg	2012-08-30 19:57:46.404868
+6	1	tetanus toxoid	5	Lf	2012-08-30 19:57:46.404868
+7	1	polysorbate 80	0	mg	2012-08-30 19:57:46.404868
+8	1	gelatin	0	mg	2012-08-30 19:57:46.404868
+9	4	formaldehyde	0.100	mg	2012-08-30 19:57:46.404868
+10	4	thimerosal	0.03	mg	2012-08-30 19:57:46.404868
+11	4	pertussis antigen	0.0468	mg	2012-08-30 19:57:46.404868
+12	4	diptheria toxoid	6.7	Lf	2012-08-30 19:57:46.404868
+13	4	aluminum potassium sulfate	0.170	mg	2012-08-30 19:57:46.404868
+14	4	tetanus toxoid	5	Lf	2012-08-30 19:57:46.404868
+15	4	Hib polysaccharide	0.010	mg	2012-08-30 19:57:46.404868
+16	4	tetanus toxoid conjugate	0.024	mg	2012-08-30 19:57:46.404868
+17	2	pertussis antigen	0.025	mg	2012-08-30 19:57:46.404868
+18	2	pertactin	0.008	mg	2012-08-30 19:57:46.404868
+19	2	diptheria toxoid	25	Lf	2012-08-30 19:57:46.404868
+20	2	tetanus toxoid	10	Lf	2012-08-30 19:57:46.404868
+21	2	aluminum hydroxide	0.625	mg	2012-08-30 19:57:46.404868
+22	2	formaldehyde	0.100	mg	2012-08-30 19:57:46.404868
+23	2	polysorbate 80	0.100	mg	2012-08-30 19:57:46.404868
+24	2	bovine extract	0	mg	2012-08-30 19:57:46.404868
+25	2	sodium chloride	4.5	mg	2012-08-30 19:57:46.404868
+26	8	pertussis antigen	0.010	mg	2012-08-30 19:57:46.404868
+27	8	pertactin	0.003	mg	2012-08-30 19:57:46.404868
+28	8	diptheria toxoid	15	Lf	2012-08-30 19:57:46.404868
+29	8	tetanus toxoid	5	Lf	2012-08-30 19:57:46.404868
+30	8	formaldehyde	0.005	mg	2012-08-30 19:57:46.404868
+31	8	2-phenoxyethanol	3.3	mg	2012-08-30 19:57:46.404868
+32	8	aluminum phosphate	1.5	mg	2012-08-30 19:57:46.404868
+33	9	pertussis antigen	0.025	mg	2012-08-30 19:57:46.404868
+34	9	pertactin	0.008	mg	2012-08-30 19:57:46.404868
+35	9	diptheria toxoid	25	Lf	2012-08-30 19:57:46.404868
+36	9	tetanus toxoid	10	Lf	2012-08-30 19:57:46.404868
+37	9	formaldehyde	0.100	mg	2012-08-30 19:57:46.404868
+38	9	aluminum hydroxide/phosphate	0.085	mg	2012-08-30 19:57:46.404868
+39	9	sodium chloride	4.5	mg	2012-08-30 19:57:46.404868
+40	9	polysorbate 80	0.100	mg	2012-08-30 19:57:46.404868
+41	9	bovine extract	0	mg	2012-08-30 19:57:46.404868
+42	9	Hep-B surface antigens	0.010	mg	2012-08-30 19:57:46.404868
+43	9	Type 1 Polio Virus/Mahoney	40	DU	2012-08-30 19:57:46.404868
+44	9	Type 2 Polio Virus/MEF-1	8	DU	2012-08-30 19:57:46.404868
+45	9	Type 3 Polio Virus/Saukett	32	DU	2012-08-30 19:57:46.404868
+46	9	Neomycin	0.05	ng	2012-08-30 19:57:46.404868
+47	9	Polymyxin-B	0.01	ng	2012-08-30 19:57:46.404868
+48	11	pertussis antigen	0.025	mg	2012-08-30 19:57:46.404868
+49	11	pertactin	0.008	mg	2012-08-30 19:57:46.404868
+50	11	diptheria toxoid	25	Lf	2012-08-30 19:57:46.404868
+51	11	tetanus toxoid	10	Lf	2012-08-30 19:57:46.404868
+52	11	formaldehyde	0.100	mg	2012-08-30 19:57:46.404868
+53	11	aluminum hydroxide/phosphate	0.085	mg	2012-08-30 19:57:46.404868
+54	11	sodium chloride	4.5	mg	2012-08-30 19:57:46.404868
+55	11	polysorbate 80	0.100	mg	2012-08-30 19:57:46.404868
+56	11	bovine extract	0	mg	2012-08-30 19:57:46.404868
+57	11	Type 1 Polio Virus/Mahoney	40	DU	2012-08-30 19:57:46.404868
+58	11	Type 2 Polio Virus/MEF-1	8	DU	2012-08-30 19:57:46.404868
+59	11	Type 3 Polio Virus/Saukett	32	DU	2012-08-30 19:57:46.404868
+60	11	Neomycin	0.05	ng	2012-08-30 19:57:46.404868
+61	11	Polymyxin-B	0.01	ng	2012-08-30 19:57:46.404868
 \.
 
 
