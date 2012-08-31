@@ -35,6 +35,7 @@ CREATE TABLE VIC.vaccine_components (
                 vaccine_component VARCHAR(100) NOT NULL,
                 dose NUMERIC NOT NULL,
                 dose_measurement VARCHAR(3) NOT NULL,
+                current_as_of TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
                 CONSTRAINT vaccine_component_id PRIMARY KEY (component_id, vaccine_id)
 );
 COMMENT ON TABLE VIC.vaccine_components IS 'components present in a vaccine';
