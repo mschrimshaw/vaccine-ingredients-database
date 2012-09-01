@@ -1,7 +1,5 @@
-VIC-v2
-======
-
-Vaccine Ingredients Calculator
+# Vaccine Ingredients Database
+This is the database used by the [Vaccine Ingredients Calculator](https://github.com/Yenwod/Vaccine-Ingredients-Calculator)
 
 ## Resources
 
