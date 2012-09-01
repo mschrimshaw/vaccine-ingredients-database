@@ -30,3 +30,13 @@ SET search_path TO vic,public;
 ```
 
 NA: Create a script to run these commands
+
+## Query Examples
+
+```sql
+select m.mvx, m.company_name, vt.cvx, vt.name, v.vaccine_name 
+from vaccine_type vt 
+inner join vaccines v on v.vaccine_type_id = vt.vaccine_type_id 
+inner join manufacturer m on v.manufacturer_id = m.manufacturer_id
+order by cvx, mvx
+```
