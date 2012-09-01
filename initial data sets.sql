@@ -8,7 +8,7 @@ insert into vic.manufacturer (company_name, MVX) values ('MedImmune', 'MED');
 
 insert into vic.vaccine_type (name,CVX) values ('DTaP',20);
 insert into vic.vaccine_type (name,CVX) values ('DTaP-Hib',50);
-insert into vic.vaccine_type (name,CVX) values ('DTaP-Hep B,IPV',110);
+insert into vic.vaccine_type (name,CVX) values ('DTaP-Hep B-IPV',110);
 insert into vic.vaccine_type (name,CVX) values ('DTaP-IPV',130);
 insert into vic.vaccine_type (name,CVX) values ('DTaP-Hib-IPV',120);
 insert into vic.vaccine_type (name,CVX) values ('Hib',48);
