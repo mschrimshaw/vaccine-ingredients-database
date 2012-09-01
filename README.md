@@ -3,6 +3,10 @@ VIC-v2
 
 Vaccine Ingredients Calculator
 
+## Resources
+
+URLs to useful resources (such as HL7 vaccine codes) are organized at http://delicious.com/cdowney/VIC
+
 ## Rapid database creation
 
 ### Setup for database creation
