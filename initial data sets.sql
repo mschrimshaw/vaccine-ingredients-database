@@ -62,7 +62,7 @@ insert into vic.vaccines (vaccine_name, manufacturer_id, vaccine_type_id, combo_
 insert into vic.vaccines (vaccine_name, manufacturer_id, vaccine_type_id, combo_vaccine, dose) values ('HPV-4',3,15,'0',0.5);
 insert into vic.vaccines (vaccine_name, manufacturer_id, vaccine_type_id, combo_vaccine, dose) values ('Daptecel',1,1,'1',0.5);
 insert into vic.vaccines (vaccine_name, manufacturer_id, vaccine_type_id, combo_vaccine, dose) values ('Pediarix',2,3,'1',0.5);
-insert into vic.vaccines (vaccine_name, manufacturer_id, vaccine_type_id, combo_vaccine, dose) values ('Kinrix',2,3,'1',0.5);
+insert into vic.vaccines (vaccine_name, manufacturer_id, vaccine_type_id, combo_vaccine, dose) values ('Kinrix',2,4,'1',0.5);
 
 
 -- tripedia 
