@@ -63,13 +63,14 @@ insert into vic.vaccines (vaccine_name, manufacturer_id, vaccine_type_id, combo_
 insert into vic.vaccines (vaccine_name, manufacturer_id, vaccine_type_id, combo_vaccine, dose) values ('Daptecel',1,1,'1',0.5);
 insert into vic.vaccines (vaccine_name, manufacturer_id, vaccine_type_id, combo_vaccine, dose) values ('Pediarix',2,3,'1',0.5);
 insert into vic.vaccines (vaccine_name, manufacturer_id, vaccine_type_id, combo_vaccine, dose) values ('Kinrix',2,4,'1',0.5);
+insert into vic.vaccines (vaccine_name, manufacturer_id, vaccine_type_id, combo_vaccine, dose) values ('Pentacel',1,5,'1',0.5);
 
 
 -- tripedia 
 insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (1,'formaldehyde',0.100,'mg');
 insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (1,'thimerosal',0.03,'mg');
 insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (1,'pertussis antigen',0.0468,'mg');
-insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (1,'diptheria toxoid',6.7,'Lf');
+insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (1,'diphtheria toxoid',6.7,'Lf');
 insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (1,'aluminum potassium sulfate',0.170,'mg');
 insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (1,'tetanus toxoid',5,'Lf');
 insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (1,'polysorbate 80',0,'mg');
@@ -80,7 +81,7 @@ insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_me
 insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (4,'formaldehyde',0.100,'mg');
 insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (4,'thimerosal',0.03,'mg');
 insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (4,'pertussis antigen',0.0468,'mg');
-insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (4,'diptheria toxoid',6.7,'Lf');
+insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (4,'diphtheria toxoid',6.7,'Lf');
 insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (4,'aluminum potassium sulfate',0.170,'mg');
 insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (4,'tetanus toxoid',5,'Lf');
 insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (4,'Hib polysaccharide',0.010,'mg');
@@ -90,7 +91,7 @@ insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_me
 
 insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (2,'pertussis antigen',0.025,'mg');
 insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (2,'pertactin',0.008,'mg');
-insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (2,'diptheria toxoid',25,'Lf');
+insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (2,'diphtheria toxoid',25,'Lf');
 insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (2,'tetanus toxoid',10,'Lf');
 insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (2,'aluminum hydroxide',0.625,'mg');
 insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (2,'formaldehyde',0.100,'mg');
@@ -102,7 +103,7 @@ insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_me
 
 insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (8,'pertussis antigen',0.010,'mg');
 insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (8,'pertactin',0.003,'mg');
-insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (8,'diptheria toxoid',15,'Lf');
+insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (8,'diphtheria toxoid',15,'Lf');
 insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (8,'tetanus toxoid',5,'Lf');
 insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (8,'formaldehyde',0.005,'mg');
 insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (8,'2-phenoxyethanol',3.3,'mg');
@@ -113,7 +114,7 @@ insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_me
 
 insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (9,'pertussis antigen',0.025,'mg');
 insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (9,'pertactin',0.008,'mg');
-insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (9,'diptheria toxoid',25,'Lf');
+insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (9,'diphtheria toxoid',25,'Lf');
 insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (9,'tetanus toxoid',10,'Lf');
 insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (9,'formaldehyde',0.100,'mg');
 insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (9,'aluminum hydroxide/phosphate',0.085,'mg');
@@ -132,7 +133,7 @@ insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_me
 
 insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (11,'pertussis antigen',0.025,'mg');
 insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (11,'pertactin',0.008,'mg');
-insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (11,'diptheria toxoid',25,'Lf');
+insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (11,'diphtheria toxoid',25,'Lf');
 insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (11,'tetanus toxoid',10,'Lf');
 insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (11,'formaldehyde',0.100,'mg');
 insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (11,'aluminum hydroxide/phosphate',0.085,'mg');
@@ -146,5 +147,25 @@ insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_me
 insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (11,'Polymyxin-B',0.01,'ng');
 
 
+-- Pentacel
 
+insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (12,'pertussis antigen',0.020,'mg');
+insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (12,'pertactin',0.008,'mg');
+insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (12,'diphtheria toxoid',15,'Lf');
+insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (12,'tetanus toxoid',5,'Lf');
+insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (12,'Hib polysaccharide',0.010,'mg');
+insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (12,'tetanus toxoid covalently bound with Hib',0.024,'mg');
+insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (12,'formaldehyde',0.005,'mg');
+insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (12,'aluminum phosphate',1.5,'mg');
+insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (12,'sucrose',42.5,'mg');
+insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (12,'polysorbate 80',10,'ppm');
+insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (12,'2-phenoxyethanol',3.3,'mg');
+insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (12,'bovine extract',50,'ng');
+insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (12,'glutaraldehyde,',50,'ng');
+insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (12,'MRC-5/human diploid cells',0.0,'mg');
+insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (12,'Type 1 Polio Virus/Mahoney',40,'DU');
+insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (12,'Type 2 Polio Virus/MEF-1',8,'DU');
+insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (12,'Type 3 Polio Virus/Saukett',32,'DU');
+insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (12,'Neomycin',4,'pg');
+insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (12,'Polymyxin-B',4,'pg');
 
