@@ -66,6 +66,36 @@ insert into vic.vaccines (vaccine_name, manufacturer_id, vaccine_type_id, combo_
 insert into vic.vaccines (vaccine_name, manufacturer_id, vaccine_type_id, combo_vaccine, dose) values ('Pentacel',1,5,'1',0.5);
 
 
+-- normalized_vaccine_components
+insert into vic.normalized_vaccine_components (component_name) values ('formaldehyde');
+insert into vic.normalized_vaccine_components (component_name) values ('thimerosal');
+insert into vic.normalized_vaccine_components (component_name) values ('pertussis antigen');
+insert into vic.normalized_vaccine_components (component_name) values ('diphtheria toxoid');
+insert into vic.normalized_vaccine_components (component_name) values ('tetanus toxoid');
+insert into vic.normalized_vaccine_components (component_name) values ('aluminum potassium sulfate');
+insert into vic.normalized_vaccine_components (component_name) values ('aluminum hydroxide');
+insert into vic.normalized_vaccine_components (component_name) values ('aluminum phosphate');
+insert into vic.normalized_vaccine_components (component_name) values ('polysorbate 80');
+insert into vic.normalized_vaccine_components (component_name) values ('gelatin');
+insert into vic.normalized_vaccine_components (component_name) values ('Hib polysaccharide');
+insert into vic.normalized_vaccine_components (component_name) values ('tetanus toxoid conjugate');
+insert into vic.normalized_vaccine_components (component_name) values ('pertactin');
+insert into vic.normalized_vaccine_components (component_name) values ('2-phenoxyethanol');
+insert into vic.normalized_vaccine_components (component_name) values ('bovine extract');
+insert into vic.normalized_vaccine_components (component_name) values ('sodium chloride');
+insert into vic.normalized_vaccine_components (component_name) values ('Hep-B surface antigens');
+insert into vic.normalized_vaccine_components (component_name) values ('Type 1 Polio Virus/Mahoney');
+insert into vic.normalized_vaccine_components (component_name) values ('Type 2 Polio Virus/MEF-1');
+insert into vic.normalized_vaccine_components (component_name) values ('Type 3 Polio Virus/Saukett');
+insert into vic.normalized_vaccine_components (component_name) values ('Neomycin');
+insert into vic.normalized_vaccine_components (component_name) values ('Polymyxin-B');
+insert into vic.normalized_vaccine_components (component_name) values ('tetanus toxoid covalently bound with Hib');
+insert into vic.normalized_vaccine_components (component_name) values ('sucrose');
+insert into vic.normalized_vaccine_components (component_name) values ('glutaraldehyde');
+insert into vic.normalized_vaccine_components (component_name) values ('MRC-5/human diploid cells');
+
+-- vaccines 
+
 -- tripedia 
 insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (1,'formaldehyde',0.100,'mg');
 insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (1,'thimerosal',0.03,'mg');
