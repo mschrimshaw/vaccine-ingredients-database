@@ -37,9 +37,9 @@ insert into vic.disease (disease, vaccine_type_id) values ('Hib',6);
 insert into vic.disease (disease, vaccine_type_id) values ('Measles',9), ('Mumps',9), ('Rubella',9);
 insert into vic.disease (disease, vaccine_type_id) values ('Measles',9), ('Mumps',9), ('Rubella',9), ('Varicella',11);
 insert into vic.disease (disease, vaccine_type_id) values ('Varicella',11);
-insert into vic.disease (disease, vaccine_type_id) values ('Pneumococcal',18);
-insert into vic.disease (disease, vaccine_type_id) values ('Pneumococcal',19);
-insert into vic.disease (disease, vaccine_type_id) values ('Pneumococcal',20);
+insert into vic.disease (disease, vaccine_type_id) values ('Pneumococcal 13 valent',18);
+insert into vic.disease (disease, vaccine_type_id) values ('Pneumococcal 7 valent',19);
+insert into vic.disease (disease, vaccine_type_id) values ('Pneumococcal 23 valent',20);
 insert into vic.disease (disease, vaccine_type_id) values ('Hepatitis B',12);
 insert into vic.disease (disease, vaccine_type_id) values ('Hepatitis B',13);
 insert into vic.disease (disease, vaccine_type_id) values ('Hepatitis B',14);
@@ -75,6 +75,7 @@ insert into vic.normalized_vaccine_components (component_name) values ('tetanus 
 insert into vic.normalized_vaccine_components (component_name) values ('aluminum potassium sulfate');
 insert into vic.normalized_vaccine_components (component_name) values ('aluminum hydroxide');
 insert into vic.normalized_vaccine_components (component_name) values ('aluminum phosphate');
+insert into vic.normalized_vaccine_components (component_name) values ('aluminum hydroxide/phosphate');
 insert into vic.normalized_vaccine_components (component_name) values ('polysorbate 80');
 insert into vic.normalized_vaccine_components (component_name) values ('gelatin');
 insert into vic.normalized_vaccine_components (component_name) values ('Hib polysaccharide');
@@ -93,6 +94,9 @@ insert into vic.normalized_vaccine_components (component_name) values ('tetanus 
 insert into vic.normalized_vaccine_components (component_name) values ('sucrose');
 insert into vic.normalized_vaccine_components (component_name) values ('glutaraldehyde');
 insert into vic.normalized_vaccine_components (component_name) values ('MRC-5/human diploid cells');
+insert into vic.normalized_vaccine_components (component_name) values ('WI-38/human diploid cells');
+insert into vic.normalized_vaccine_components (component_name) values ('PER-C6/human retinal cells');
+
 
 -- vaccines 
 
@@ -191,7 +195,7 @@ insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_me
 insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (12,'polysorbate 80',10,'ppm');
 insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (12,'2-phenoxyethanol',3.3,'mg');
 insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (12,'bovine extract',50,'ng');
-insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (12,'glutaraldehyde,',50,'ng');
+insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (12,'glutaraldehyde',50,'ng');
 insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (12,'MRC-5/human diploid cells',0.0,'mg');
 insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (12,'Type 1 Polio Virus/Mahoney',40,'DU');
 insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (12,'Type 2 Polio Virus/MEF-1',8,'DU');
