@@ -1,4 +1,16 @@
 
+CREATE SEQUENCE VIC.normalized_vaccine_components_id_seq;
+
+CREATE TABLE VIC.normalized_vaccine_components (
+                normalized_id INTEGER NOT NULL DEFAULT nextval('VIC.normalized_vaccine_components_id_seq'),
+                component_name VARCHAR(100) NOT NULL,
+                CONSTRAINT normalized_id PRIMARY KEY (normalized_id)
+);
+COMMENT ON TABLE VIC.normalized_vaccine_components IS 'individual vaccine components will be stored in this table to increase normalization of data';
+
+
+ALTER SEQUENCE VIC.normalized_vaccine_components_id_seq OWNED BY VIC.normalized_vaccine_components.normalized_id;
+
 CREATE SEQUENCE VIC.vaccine_type_id_seq;
 
 CREATE TABLE VIC.vaccine_type (
@@ -34,6 +46,7 @@ CREATE TABLE VIC.vaccine_components (
                 vaccine_id INTEGER NOT NULL,
                 vaccine_component VARCHAR(100) NOT NULL,
                 dose NUMERIC NOT NULL,
+                normalized_component_id INTEGER NOT NULL,
                 dose_measurement VARCHAR(3) NOT NULL,
                 current_as_of TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
                 CONSTRAINT vaccine_component_id PRIMARY KEY (component_id, vaccine_id)
@@ -42,6 +55,7 @@ COMMENT ON TABLE VIC.vaccine_components IS 'components present in a vaccine';
 COMMENT ON COLUMN VIC.vaccine_components.component_id IS 'FK on vaccine.id';
 COMMENT ON COLUMN VIC.vaccine_components.vaccine_component IS 'name of vaccine component/antigen/adjuvant';
 COMMENT ON COLUMN VIC.vaccine_components.dose IS 'amount of antigen/adjuvant/etc present (mg or mcg)';
+COMMENT ON COLUMN VIC.vaccine_components.normalized_component_id IS 'temporary column used to migrate away from using vaccine_component and switch to normalized component data';
 COMMENT ON COLUMN VIC.vaccine_components.dose_measurement IS 'mg, mcg, or ml dose scale';
 
 
@@ -78,7 +92,7 @@ CREATE TABLE VIC.vaccines (
 COMMENT ON TABLE VIC.vaccines IS 'vaccine base table';
 COMMENT ON COLUMN VIC.vaccines.manufacturer_id IS 'FK on manufacturer.id';
 COMMENT ON COLUMN VIC.vaccines.vaccine_name IS 'Marketing name of vaccine product';
-COMMENT ON COLUMN VIC.vaccines.dose IS 'dose of vaccine to be administered ';
+COMMENT ON COLUMN VIC.vaccines.dose IS 'dose of vaccine to be administered';
 
 
 ALTER SEQUENCE VIC.vaccine_id_seq OWNED BY VIC.vaccines.vaccine_id;
