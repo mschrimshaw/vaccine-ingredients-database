@@ -42,3 +42,33 @@ inner join vaccines v on v.vaccine_type_id = vt.vaccine_type_id
 inner join manufacturer m on v.manufacturer_id = m.manufacturer_id
 order by cvx, mvx
 ```
+
+## To begin normalizing vaccine component data, run this UPDATE query:
+```sql
+UPDATE vaccine_components
+SET normalized_component_id = normalized_id
+FROM
+  normalized_vaccine_components
+WHERE
+	vaccine_components.vaccine_component = normalized_vaccine_components.component_name
+```
+
+## Then we can join normalized_vaccine_components on vaccine_components:
+```sql
+SELECT
+  v.vaccine_name,
+	vc.vaccine_id,
+	vc.normalized_component_id,
+	nvc.component_name
+FROM
+	vaccines v
+JOIN vaccine_components vc ON v.vaccine_id = vc.vaccine_id
+JOIN normalized_vaccine_components nvc ON vc.normalized_component_id = nvc.normalized_id
+ORDER BY
+	vc.vaccine_id
+```
+
+And once a reasonable method of populating vaccine_components with more entries is figured out 
+(which will need to find values from other tables, rather than having them hard-coded as they 
+curently are), the vaccine_components.vaccine_component column can be dropped.
+
