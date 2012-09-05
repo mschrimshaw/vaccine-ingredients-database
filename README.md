@@ -68,7 +68,23 @@ ORDER BY
 	vc.vaccine_id
 ```
 
-And once a reasonable method of populating vaccine_components with more entries is figured out 
-(which will need to find values from other tables, rather than having them hard-coded as they 
-curently are), the vaccine_components.vaccine_component column can be dropped.
+--And once a reasonable method of populating vaccine_components with more entries is figured out 
+--(which will need to find values from other tables, rather than having them hard-coded as they 
+--curently are), the vaccine_components.vaccine_component column can be dropped.
 
+This will populate the vaccine_components table using normalized ids for vaccine components rather than
+the text itself.  The values for dose and dose measurement need to be adjusted for each component added.
+The dose_measurement values are another candidate for normalization, as they are more strings that don't
+need to be repeated as they currently are.
+
+```sql
+WITH vax_id AS (
+SELECT vaccine_id FROM vic.vaccines WHERE vaccine_name='Adacel'
+), vax_component AS ( 
+SELECT normalized_id FROM vic.normalized_vaccine_components WHERE component_name='pertactin'
+)
+INSERT INTO vic.vaccine_components(vaccine_id, normalized_component_id, dose, dose_measurement) 
+SELECT * FROM vax_id, vax_component,cast(concat(3) as DECIMAL) as dose, concat('mcg') as dose_measurement
+```
+
+The vaccine_component column on the vaccine_components table can now be dropped.
