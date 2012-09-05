@@ -68,9 +68,9 @@ ORDER BY
 	vc.vaccine_id
 ```
 
---And once a reasonable method of populating vaccine_components with more entries is figured out 
---(which will need to find values from other tables, rather than having them hard-coded as they 
---curently are), the vaccine_components.vaccine_component column can be dropped.
+#And once a reasonable method of populating vaccine_components with more entries is figured out 
+#(which will need to find values from other tables, rather than having them hard-coded as they 
+#curently are), the vaccine_components.vaccine_component column can be dropped.
 
 This will populate the vaccine_components table using normalized ids for vaccine components rather than
 the text itself.  The values for dose and dose measurement need to be adjusted for each component added.
