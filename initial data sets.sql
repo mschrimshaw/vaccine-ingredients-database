@@ -7,6 +7,7 @@ insert into vic.manufacturer (company_name, MVX) values ('MedImmune', 'MED');
 
 
 insert into vic.vaccine_type (name,CVX) values ('DTaP',20);
+insert into vic.vaccine_type (name,CVX) values ('Tdap',115);
 insert into vic.vaccine_type (name,CVX) values ('DTaP-Hib',50);
 insert into vic.vaccine_type (name,CVX) values ('DTaP-Hep B-IPV',110);
 insert into vic.vaccine_type (name,CVX) values ('DTaP-IPV',130);
@@ -64,6 +65,7 @@ insert into vic.vaccines (vaccine_name, manufacturer_id, vaccine_type_id, combo_
 insert into vic.vaccines (vaccine_name, manufacturer_id, vaccine_type_id, combo_vaccine, dose) values ('Pediarix',2,3,'1',0.5);
 insert into vic.vaccines (vaccine_name, manufacturer_id, vaccine_type_id, combo_vaccine, dose) values ('Kinrix',2,4,'1',0.5);
 insert into vic.vaccines (vaccine_name, manufacturer_id, vaccine_type_id, combo_vaccine, dose) values ('Pentacel',1,5,'1',0.5);
+insert into vict.vaccines (vaccine_name, manufacturer_id, vaccine_type_id, combo_vaccine, dose) values ('Adacel',1,1,'1',0.5);
 
 
 -- normalized_vaccine_components
