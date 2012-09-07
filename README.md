@@ -36,11 +36,29 @@ NA: Create a script to run these commands
 ## Query Examples
 
 ```sql
-select m.mvx, m.company_name, vt.cvx, vt.name, v.vaccine_name 
-from vaccine_type vt 
-inner join vaccines v on v.vaccine_type_id = vt.vaccine_type_id 
-inner join manufacturer m on v.manufacturer_id = m.manufacturer_id
-order by cvx, mvx
+-- list manufacturers and vaccines
+SELECT m.mvx, m.company_name, vt.cvx, vt.name, v.vaccine_name 
+FROM vaccine_type vt 
+INNER JOIN  vaccines v on v.vaccine_type_id = vt.vaccine_type_id 
+INNER JOIN manufacturer m on v.manufacturer_id = m.manufacturer_id
+ORDER BY cvx, mvx
+
+-- which vaccines contain aluminum?
+SELECT 	v.vaccine_name,
+	v.vaccine_type_id,
+	vt.cvx,
+	vt."name",
+    	vc.vaccine_id,
+    	vc.normalized_component_id,
+	vc.dose,
+	vc.dose_measurement,
+    	nvc.component_name
+FROM vaccines v
+JOIN vaccine_components vc ON v.vaccine_id = vc.vaccine_id
+JOIN normalized_vaccine_components nvc ON vc.normalized_component_id = nvc.normalized_id
+JOIN vaccine_type vt ON v.vaccine_type_id = vt.vaccine_type_id
+WHERE nvc.component_name LIKE 'alum%'
+ORDER BY vt.name ASC, vc.dose DESC
 ```
 
 ## To begin normalizing vaccine component data, run this UPDATE query:
