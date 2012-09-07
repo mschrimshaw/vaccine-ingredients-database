@@ -48,11 +48,11 @@ SELECT 	v.vaccine_name,
 	v.vaccine_type_id,
 	vt.cvx,
 	vt."name",
-    	vc.vaccine_id,
-    	vc.normalized_component_id,
+	vc.vaccine_id,
+	vc.normalized_component_id,
 	vc.dose,
 	vc.dose_measurement,
-    	nvc.component_name
+	nvc.component_name
 FROM vaccines v
 JOIN vaccine_components vc ON v.vaccine_id = vc.vaccine_id
 JOIN normalized_vaccine_components nvc ON vc.normalized_component_id = nvc.normalized_id
