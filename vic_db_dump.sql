@@ -9,37 +9,20 @@ SET check_function_bodies = false;
 SET client_min_messages = warning;
 
 --
--- Name: VIC; Type: DATABASE; Schema: -; Owner: mschrimshaw
---
-
-CREATE DATABASE "VIC" WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'C' LC_CTYPE = 'C' TABLESPACE = vic_tablespace;
-
-
-ALTER DATABASE "VIC" OWNER TO mschrimshaw;
-
-\connect "VIC"
-
-SET statement_timeout = 0;
-SET client_encoding = 'UTF8';
-SET standard_conforming_strings = on;
-SET check_function_bodies = false;
-SET client_min_messages = warning;
-
---
--- Name: VIC; Type: COMMENT; Schema: -; Owner: mschrimshaw
+-- Name: VIC; Type: COMMENT; Schema: -; Owner: vic
 --
 
 COMMENT ON DATABASE "VIC" IS 'vaccine ingredients calculator database';
 
 
 --
--- Name: vic; Type: SCHEMA; Schema: -; Owner: mschrimshaw
+-- Name: vic; Type: SCHEMA; Schema: -; Owner: vic
 --
 
 CREATE SCHEMA vic;
 
 
-ALTER SCHEMA vic OWNER TO mschrimshaw;
+ALTER SCHEMA vic OWNER TO vic;
 
 --
 -- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
@@ -62,7 +45,7 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: disease; Type: TABLE; Schema: vic; Owner: mschrimshaw; Tablespace: 
+-- Name: disease; Type: TABLE; Schema: vic; Owner: vic; Tablespace: 
 --
 
 CREATE TABLE disease (
@@ -72,24 +55,24 @@ CREATE TABLE disease (
 );
 
 
-ALTER TABLE vic.disease OWNER TO mschrimshaw;
+ALTER TABLE vic.disease OWNER TO vic;
 
 --
--- Name: TABLE disease; Type: COMMENT; Schema: vic; Owner: mschrimshaw
+-- Name: TABLE disease; Type: COMMENT; Schema: vic; Owner: vic
 --
 
 COMMENT ON TABLE disease IS 'diseases for which vaccinations are given for';
 
 
 --
--- Name: COLUMN disease.disease; Type: COMMENT; Schema: vic; Owner: mschrimshaw
+-- Name: COLUMN disease.disease; Type: COMMENT; Schema: vic; Owner: vic
 --
 
 COMMENT ON COLUMN disease.disease IS 'disease name';
 
 
 --
--- Name: disease_id_seq; Type: SEQUENCE; Schema: vic; Owner: mschrimshaw
+-- Name: disease_id_seq; Type: SEQUENCE; Schema: vic; Owner: vic
 --
 
 CREATE SEQUENCE disease_id_seq
@@ -100,24 +83,24 @@ CREATE SEQUENCE disease_id_seq
     CACHE 1;
 
 
-ALTER TABLE vic.disease_id_seq OWNER TO mschrimshaw;
+ALTER TABLE vic.disease_id_seq OWNER TO vic;
 
 --
--- Name: disease_id_seq; Type: SEQUENCE OWNED BY; Schema: vic; Owner: mschrimshaw
+-- Name: disease_id_seq; Type: SEQUENCE OWNED BY; Schema: vic; Owner: vic
 --
 
 ALTER SEQUENCE disease_id_seq OWNED BY disease.disease_id;
 
 
 --
--- Name: disease_id_seq; Type: SEQUENCE SET; Schema: vic; Owner: mschrimshaw
+-- Name: disease_id_seq; Type: SEQUENCE SET; Schema: vic; Owner: vic
 --
 
 SELECT pg_catalog.setval('disease_id_seq', 27, true);
 
 
 --
--- Name: manufacturer; Type: TABLE; Schema: vic; Owner: mschrimshaw; Tablespace: 
+-- Name: manufacturer; Type: TABLE; Schema: vic; Owner: vic; Tablespace: 
 --
 
 CREATE TABLE manufacturer (
@@ -127,31 +110,31 @@ CREATE TABLE manufacturer (
 );
 
 
-ALTER TABLE vic.manufacturer OWNER TO mschrimshaw;
+ALTER TABLE vic.manufacturer OWNER TO vic;
 
 --
--- Name: TABLE manufacturer; Type: COMMENT; Schema: vic; Owner: mschrimshaw
+-- Name: TABLE manufacturer; Type: COMMENT; Schema: vic; Owner: vic
 --
 
 COMMENT ON TABLE manufacturer IS 'vaccine manufacturers';
 
 
 --
--- Name: COLUMN manufacturer.company_name; Type: COMMENT; Schema: vic; Owner: mschrimshaw
+-- Name: COLUMN manufacturer.company_name; Type: COMMENT; Schema: vic; Owner: vic
 --
 
 COMMENT ON COLUMN manufacturer.company_name IS 'vaccine manufacturer company';
 
 
 --
--- Name: COLUMN manufacturer.mvx; Type: COMMENT; Schema: vic; Owner: mschrimshaw
+-- Name: COLUMN manufacturer.mvx; Type: COMMENT; Schema: vic; Owner: vic
 --
 
 COMMENT ON COLUMN manufacturer.mvx IS 'CDC MVX manufacturer code';
 
 
 --
--- Name: manufacturer_manufacturer_id_seq; Type: SEQUENCE; Schema: vic; Owner: mschrimshaw
+-- Name: manufacturer_manufacturer_id_seq; Type: SEQUENCE; Schema: vic; Owner: vic
 --
 
 CREATE SEQUENCE manufacturer_manufacturer_id_seq
@@ -162,24 +145,71 @@ CREATE SEQUENCE manufacturer_manufacturer_id_seq
     CACHE 1;
 
 
-ALTER TABLE vic.manufacturer_manufacturer_id_seq OWNER TO mschrimshaw;
+ALTER TABLE vic.manufacturer_manufacturer_id_seq OWNER TO vic;
 
 --
--- Name: manufacturer_manufacturer_id_seq; Type: SEQUENCE OWNED BY; Schema: vic; Owner: mschrimshaw
+-- Name: manufacturer_manufacturer_id_seq; Type: SEQUENCE OWNED BY; Schema: vic; Owner: vic
 --
 
 ALTER SEQUENCE manufacturer_manufacturer_id_seq OWNED BY manufacturer.manufacturer_id;
 
 
 --
--- Name: manufacturer_manufacturer_id_seq; Type: SEQUENCE SET; Schema: vic; Owner: mschrimshaw
+-- Name: manufacturer_manufacturer_id_seq; Type: SEQUENCE SET; Schema: vic; Owner: vic
 --
 
 SELECT pg_catalog.setval('manufacturer_manufacturer_id_seq', 6, true);
 
 
 --
--- Name: normalized_vaccine_components; Type: TABLE; Schema: vic; Owner: mschrimshaw; Tablespace: 
+-- Name: measurements; Type: TABLE; Schema: vic; Owner: vic; Tablespace: 
+--
+
+CREATE TABLE measurements (
+    measurement_id smallint NOT NULL,
+    measurement character varying(3) NOT NULL
+);
+
+
+ALTER TABLE vic.measurements OWNER TO vic;
+
+--
+-- Name: TABLE measurements; Type: COMMENT; Schema: vic; Owner: vic
+--
+
+COMMENT ON TABLE measurements IS 'Contains normalized vaccine component measurements';
+
+
+--
+-- Name: measurement_id_seq; Type: SEQUENCE; Schema: vic; Owner: vic
+--
+
+CREATE SEQUENCE measurement_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE vic.measurement_id_seq OWNER TO vic;
+
+--
+-- Name: measurement_id_seq; Type: SEQUENCE OWNED BY; Schema: vic; Owner: vic
+--
+
+ALTER SEQUENCE measurement_id_seq OWNED BY measurements.measurement_id;
+
+
+--
+-- Name: measurement_id_seq; Type: SEQUENCE SET; Schema: vic; Owner: vic
+--
+
+SELECT pg_catalog.setval('measurement_id_seq', 1, false);
+
+
+--
+-- Name: normalized_vaccine_components; Type: TABLE; Schema: vic; Owner: vic; Tablespace: 
 --
 
 CREATE TABLE normalized_vaccine_components (
@@ -188,17 +218,17 @@ CREATE TABLE normalized_vaccine_components (
 );
 
 
-ALTER TABLE vic.normalized_vaccine_components OWNER TO mschrimshaw;
+ALTER TABLE vic.normalized_vaccine_components OWNER TO vic;
 
 --
--- Name: TABLE normalized_vaccine_components; Type: COMMENT; Schema: vic; Owner: mschrimshaw
+-- Name: TABLE normalized_vaccine_components; Type: COMMENT; Schema: vic; Owner: vic
 --
 
 COMMENT ON TABLE normalized_vaccine_components IS 'individual vaccine components will be stored in this table to increase normalization of data';
 
 
 --
--- Name: normalized_vaccine_components_id_seq; Type: SEQUENCE; Schema: vic; Owner: mschrimshaw
+-- Name: normalized_vaccine_components_id_seq; Type: SEQUENCE; Schema: vic; Owner: vic
 --
 
 CREATE SEQUENCE normalized_vaccine_components_id_seq
@@ -209,68 +239,61 @@ CREATE SEQUENCE normalized_vaccine_components_id_seq
     CACHE 1;
 
 
-ALTER TABLE vic.normalized_vaccine_components_id_seq OWNER TO mschrimshaw;
+ALTER TABLE vic.normalized_vaccine_components_id_seq OWNER TO vic;
 
 --
--- Name: normalized_vaccine_components_id_seq; Type: SEQUENCE OWNED BY; Schema: vic; Owner: mschrimshaw
+-- Name: normalized_vaccine_components_id_seq; Type: SEQUENCE OWNED BY; Schema: vic; Owner: vic
 --
 
 ALTER SEQUENCE normalized_vaccine_components_id_seq OWNED BY normalized_vaccine_components.normalized_id;
 
 
 --
--- Name: normalized_vaccine_components_id_seq; Type: SEQUENCE SET; Schema: vic; Owner: mschrimshaw
+-- Name: normalized_vaccine_components_id_seq; Type: SEQUENCE SET; Schema: vic; Owner: vic
 --
 
 SELECT pg_catalog.setval('normalized_vaccine_components_id_seq', 29, true);
 
 
 --
--- Name: vaccine_components; Type: TABLE; Schema: vic; Owner: mschrimshaw; Tablespace: 
+-- Name: vaccine_components; Type: TABLE; Schema: vic; Owner: vic; Tablespace: 
 --
 
 CREATE TABLE vaccine_components (
     component_id integer NOT NULL,
     vaccine_id integer NOT NULL,
     dose numeric NOT NULL,
-    dose_measurement character varying(3) NOT NULL,
     current_as_of timestamp without time zone DEFAULT now() NOT NULL,
-    normalized_component_id integer NOT NULL
+    normalized_component_id integer NOT NULL,
+    dose_measurement smallint NOT NULL
 );
 
 
-ALTER TABLE vic.vaccine_components OWNER TO mschrimshaw;
+ALTER TABLE vic.vaccine_components OWNER TO vic;
 
 --
--- Name: TABLE vaccine_components; Type: COMMENT; Schema: vic; Owner: mschrimshaw
+-- Name: TABLE vaccine_components; Type: COMMENT; Schema: vic; Owner: vic
 --
 
 COMMENT ON TABLE vaccine_components IS 'components present in a vaccine';
 
 
 --
--- Name: COLUMN vaccine_components.component_id; Type: COMMENT; Schema: vic; Owner: mschrimshaw
+-- Name: COLUMN vaccine_components.component_id; Type: COMMENT; Schema: vic; Owner: vic
 --
 
 COMMENT ON COLUMN vaccine_components.component_id IS 'FK on vaccine.id';
 
 
 --
--- Name: COLUMN vaccine_components.dose; Type: COMMENT; Schema: vic; Owner: mschrimshaw
+-- Name: COLUMN vaccine_components.dose; Type: COMMENT; Schema: vic; Owner: vic
 --
 
 COMMENT ON COLUMN vaccine_components.dose IS 'amount of antigen/adjuvant/etc present (mg or mcg)';
 
 
 --
--- Name: COLUMN vaccine_components.dose_measurement; Type: COMMENT; Schema: vic; Owner: mschrimshaw
---
-
-COMMENT ON COLUMN vaccine_components.dose_measurement IS 'mg, mcg, or ml dose scale';
-
-
---
--- Name: vaccine_components_component_id_seq; Type: SEQUENCE; Schema: vic; Owner: mschrimshaw
+-- Name: vaccine_components_component_id_seq; Type: SEQUENCE; Schema: vic; Owner: vic
 --
 
 CREATE SEQUENCE vaccine_components_component_id_seq
@@ -281,24 +304,24 @@ CREATE SEQUENCE vaccine_components_component_id_seq
     CACHE 1;
 
 
-ALTER TABLE vic.vaccine_components_component_id_seq OWNER TO mschrimshaw;
+ALTER TABLE vic.vaccine_components_component_id_seq OWNER TO vic;
 
 --
--- Name: vaccine_components_component_id_seq; Type: SEQUENCE OWNED BY; Schema: vic; Owner: mschrimshaw
+-- Name: vaccine_components_component_id_seq; Type: SEQUENCE OWNED BY; Schema: vic; Owner: vic
 --
 
 ALTER SEQUENCE vaccine_components_component_id_seq OWNED BY vaccine_components.component_id;
 
 
 --
--- Name: vaccine_components_component_id_seq; Type: SEQUENCE SET; Schema: vic; Owner: mschrimshaw
+-- Name: vaccine_components_component_id_seq; Type: SEQUENCE SET; Schema: vic; Owner: vic
 --
 
 SELECT pg_catalog.setval('vaccine_components_component_id_seq', 80, true);
 
 
 --
--- Name: vaccines; Type: TABLE; Schema: vic; Owner: mschrimshaw; Tablespace: 
+-- Name: vaccines; Type: TABLE; Schema: vic; Owner: vic; Tablespace: 
 --
 
 CREATE TABLE vaccines (
@@ -313,38 +336,38 @@ CREATE TABLE vaccines (
 );
 
 
-ALTER TABLE vic.vaccines OWNER TO mschrimshaw;
+ALTER TABLE vic.vaccines OWNER TO vic;
 
 --
--- Name: TABLE vaccines; Type: COMMENT; Schema: vic; Owner: mschrimshaw
+-- Name: TABLE vaccines; Type: COMMENT; Schema: vic; Owner: vic
 --
 
 COMMENT ON TABLE vaccines IS 'vaccine base table';
 
 
 --
--- Name: COLUMN vaccines.manufacturer_id; Type: COMMENT; Schema: vic; Owner: mschrimshaw
+-- Name: COLUMN vaccines.manufacturer_id; Type: COMMENT; Schema: vic; Owner: vic
 --
 
 COMMENT ON COLUMN vaccines.manufacturer_id IS 'FK on manufacturer.id';
 
 
 --
--- Name: COLUMN vaccines.vaccine_name; Type: COMMENT; Schema: vic; Owner: mschrimshaw
+-- Name: COLUMN vaccines.vaccine_name; Type: COMMENT; Schema: vic; Owner: vic
 --
 
 COMMENT ON COLUMN vaccines.vaccine_name IS 'Marketing name of vaccine product';
 
 
 --
--- Name: COLUMN vaccines.dose; Type: COMMENT; Schema: vic; Owner: mschrimshaw
+-- Name: COLUMN vaccines.dose; Type: COMMENT; Schema: vic; Owner: vic
 --
 
 COMMENT ON COLUMN vaccines.dose IS 'dose of vaccine to be administered ';
 
 
 --
--- Name: vaccine_id_seq; Type: SEQUENCE; Schema: vic; Owner: mschrimshaw
+-- Name: vaccine_id_seq; Type: SEQUENCE; Schema: vic; Owner: vic
 --
 
 CREATE SEQUENCE vaccine_id_seq
@@ -355,24 +378,24 @@ CREATE SEQUENCE vaccine_id_seq
     CACHE 1;
 
 
-ALTER TABLE vic.vaccine_id_seq OWNER TO mschrimshaw;
+ALTER TABLE vic.vaccine_id_seq OWNER TO vic;
 
 --
--- Name: vaccine_id_seq; Type: SEQUENCE OWNED BY; Schema: vic; Owner: mschrimshaw
+-- Name: vaccine_id_seq; Type: SEQUENCE OWNED BY; Schema: vic; Owner: vic
 --
 
 ALTER SEQUENCE vaccine_id_seq OWNED BY vaccines.vaccine_id;
 
 
 --
--- Name: vaccine_id_seq; Type: SEQUENCE SET; Schema: vic; Owner: mschrimshaw
+-- Name: vaccine_id_seq; Type: SEQUENCE SET; Schema: vic; Owner: vic
 --
 
-SELECT pg_catalog.setval('vaccine_id_seq', 13, true);
+SELECT pg_catalog.setval('vaccine_id_seq', 14, true);
 
 
 --
--- Name: vaccine_type; Type: TABLE; Schema: vic; Owner: mschrimshaw; Tablespace: 
+-- Name: vaccine_type; Type: TABLE; Schema: vic; Owner: vic; Tablespace: 
 --
 
 CREATE TABLE vaccine_type (
@@ -382,24 +405,24 @@ CREATE TABLE vaccine_type (
 );
 
 
-ALTER TABLE vic.vaccine_type OWNER TO mschrimshaw;
+ALTER TABLE vic.vaccine_type OWNER TO vic;
 
 --
--- Name: TABLE vaccine_type; Type: COMMENT; Schema: vic; Owner: mschrimshaw
+-- Name: TABLE vaccine_type; Type: COMMENT; Schema: vic; Owner: vic
 --
 
 COMMENT ON TABLE vaccine_type IS 'Vaccine types (DTaP, Hib, MMR, etc)';
 
 
 --
--- Name: COLUMN vaccine_type.cvx; Type: COMMENT; Schema: vic; Owner: mschrimshaw
+-- Name: COLUMN vaccine_type.cvx; Type: COMMENT; Schema: vic; Owner: vic
 --
 
 COMMENT ON COLUMN vaccine_type.cvx IS 'CDC CVX code for vaccine type';
 
 
 --
--- Name: vaccine_type_id_seq; Type: SEQUENCE; Schema: vic; Owner: mschrimshaw
+-- Name: vaccine_type_id_seq; Type: SEQUENCE; Schema: vic; Owner: vic
 --
 
 CREATE SEQUENCE vaccine_type_id_seq
@@ -410,66 +433,66 @@ CREATE SEQUENCE vaccine_type_id_seq
     CACHE 1;
 
 
-ALTER TABLE vic.vaccine_type_id_seq OWNER TO mschrimshaw;
+ALTER TABLE vic.vaccine_type_id_seq OWNER TO vic;
 
 --
--- Name: vaccine_type_id_seq; Type: SEQUENCE OWNED BY; Schema: vic; Owner: mschrimshaw
+-- Name: vaccine_type_id_seq; Type: SEQUENCE OWNED BY; Schema: vic; Owner: vic
 --
 
 ALTER SEQUENCE vaccine_type_id_seq OWNED BY vaccine_type.vaccine_type_id;
 
 
 --
--- Name: vaccine_type_id_seq; Type: SEQUENCE SET; Schema: vic; Owner: mschrimshaw
+-- Name: vaccine_type_id_seq; Type: SEQUENCE SET; Schema: vic; Owner: vic
 --
 
 SELECT pg_catalog.setval('vaccine_type_id_seq', 21, true);
 
 
 --
--- Name: disease_id; Type: DEFAULT; Schema: vic; Owner: mschrimshaw
+-- Name: disease_id; Type: DEFAULT; Schema: vic; Owner: vic
 --
 
 ALTER TABLE ONLY disease ALTER COLUMN disease_id SET DEFAULT nextval('disease_id_seq'::regclass);
 
 
 --
--- Name: manufacturer_id; Type: DEFAULT; Schema: vic; Owner: mschrimshaw
+-- Name: manufacturer_id; Type: DEFAULT; Schema: vic; Owner: vic
 --
 
 ALTER TABLE ONLY manufacturer ALTER COLUMN manufacturer_id SET DEFAULT nextval('manufacturer_manufacturer_id_seq'::regclass);
 
 
 --
--- Name: normalized_id; Type: DEFAULT; Schema: vic; Owner: mschrimshaw
+-- Name: normalized_id; Type: DEFAULT; Schema: vic; Owner: vic
 --
 
 ALTER TABLE ONLY normalized_vaccine_components ALTER COLUMN normalized_id SET DEFAULT nextval('normalized_vaccine_components_id_seq'::regclass);
 
 
 --
--- Name: component_id; Type: DEFAULT; Schema: vic; Owner: mschrimshaw
+-- Name: component_id; Type: DEFAULT; Schema: vic; Owner: vic
 --
 
 ALTER TABLE ONLY vaccine_components ALTER COLUMN component_id SET DEFAULT nextval('vaccine_components_component_id_seq'::regclass);
 
 
 --
--- Name: vaccine_type_id; Type: DEFAULT; Schema: vic; Owner: mschrimshaw
+-- Name: vaccine_type_id; Type: DEFAULT; Schema: vic; Owner: vic
 --
 
 ALTER TABLE ONLY vaccine_type ALTER COLUMN vaccine_type_id SET DEFAULT nextval('vaccine_type_id_seq'::regclass);
 
 
 --
--- Name: vaccine_id; Type: DEFAULT; Schema: vic; Owner: mschrimshaw
+-- Name: vaccine_id; Type: DEFAULT; Schema: vic; Owner: vic
 --
 
 ALTER TABLE ONLY vaccines ALTER COLUMN vaccine_id SET DEFAULT nextval('vaccine_id_seq'::regclass);
 
 
 --
--- Data for Name: disease; Type: TABLE DATA; Schema: vic; Owner: mschrimshaw
+-- Data for Name: disease; Type: TABLE DATA; Schema: vic; Owner: vic
 --
 
 COPY disease (disease_id, vaccine_type_id, disease) FROM stdin;
@@ -503,7 +526,7 @@ COPY disease (disease_id, vaccine_type_id, disease) FROM stdin;
 
 
 --
--- Data for Name: manufacturer; Type: TABLE DATA; Schema: vic; Owner: mschrimshaw
+-- Data for Name: manufacturer; Type: TABLE DATA; Schema: vic; Owner: vic
 --
 
 COPY manufacturer (manufacturer_id, company_name, mvx) FROM stdin;
@@ -517,7 +540,21 @@ COPY manufacturer (manufacturer_id, company_name, mvx) FROM stdin;
 
 
 --
--- Data for Name: normalized_vaccine_components; Type: TABLE DATA; Schema: vic; Owner: mschrimshaw
+-- Data for Name: measurements; Type: TABLE DATA; Schema: vic; Owner: vic
+--
+
+COPY measurements (measurement_id, measurement) FROM stdin;
+1	pg
+2	Lf
+3	DU
+4	ppm
+5	mg
+6	ng
+\.
+
+
+--
+-- Data for Name: normalized_vaccine_components; Type: TABLE DATA; Schema: vic; Owner: vic
 --
 
 COPY normalized_vaccine_components (normalized_id, component_name) FROM stdin;
@@ -554,95 +591,95 @@ COPY normalized_vaccine_components (normalized_id, component_name) FROM stdin;
 
 
 --
--- Data for Name: vaccine_components; Type: TABLE DATA; Schema: vic; Owner: mschrimshaw
+-- Data for Name: vaccine_components; Type: TABLE DATA; Schema: vic; Owner: vic
 --
 
-COPY vaccine_components (component_id, vaccine_id, dose, dose_measurement, current_as_of, normalized_component_id) FROM stdin;
-68	12	0.005	mg	2012-09-02 00:43:42.40273	1
-52	11	0.100	mg	2012-08-30 19:57:46.404868	1
-37	9	0.100	mg	2012-08-30 19:57:46.404868	1
-30	8	0.005	mg	2012-08-30 19:57:46.404868	1
-22	2	0.100	mg	2012-08-30 19:57:46.404868	1
-9	4	0.100	mg	2012-08-30 19:57:46.404868	1
-1	1	0.100	mg	2012-08-30 19:57:46.404868	1
-10	4	0.03	mg	2012-08-30 19:57:46.404868	2
-2	1	0.03	mg	2012-08-30 19:57:46.404868	2
-62	12	0.020	mg	2012-09-02 00:43:42.297587	3
-48	11	0.025	mg	2012-08-30 19:57:46.404868	3
-33	9	0.025	mg	2012-08-30 19:57:46.404868	3
-26	8	0.010	mg	2012-08-30 19:57:46.404868	3
-17	2	0.025	mg	2012-08-30 19:57:46.404868	3
-11	4	0.0468	mg	2012-08-30 19:57:46.404868	3
-3	1	0.0468	mg	2012-08-30 19:57:46.404868	3
-64	12	15	Lf	2012-09-02 00:43:42.398848	4
-50	11	25	Lf	2012-08-30 19:57:46.404868	4
-35	9	25	Lf	2012-08-30 19:57:46.404868	4
-28	8	15	Lf	2012-08-30 19:57:46.404868	4
-19	2	25	Lf	2012-08-30 19:57:46.404868	4
-12	4	6.7	Lf	2012-08-30 19:57:46.404868	4
-74	12	50	ng	2012-09-02 00:43:47.269155	25
-38	9	0.085	mg	2012-08-30 19:57:46.404868	29
-53	11	0.085	mg	2012-08-30 19:57:46.404868	29
-4	1	6.7	Lf	2012-08-30 19:57:46.404868	4
-65	12	5	Lf	2012-09-02 00:43:42.399888	5
-51	11	10	Lf	2012-08-30 19:57:46.404868	5
-36	9	10	Lf	2012-08-30 19:57:46.404868	5
-29	8	5	Lf	2012-08-30 19:57:46.404868	5
-20	2	10	Lf	2012-08-30 19:57:46.404868	5
-14	4	5	Lf	2012-08-30 19:57:46.404868	5
-6	1	5	Lf	2012-08-30 19:57:46.404868	5
-13	4	0.170	mg	2012-08-30 19:57:46.404868	6
-5	1	0.170	mg	2012-08-30 19:57:46.404868	6
-21	2	0.625	mg	2012-08-30 19:57:46.404868	7
-69	12	1.5	mg	2012-09-02 00:43:42.404042	8
-32	8	1.5	mg	2012-08-30 19:57:46.404868	8
-71	12	10	ppm	2012-09-02 00:43:47.266026	9
-55	11	0.100	mg	2012-08-30 19:57:46.404868	9
-40	9	0.100	mg	2012-08-30 19:57:46.404868	9
-23	2	0.100	mg	2012-08-30 19:57:46.404868	9
-7	1	0	mg	2012-08-30 19:57:46.404868	9
-8	1	0	mg	2012-08-30 19:57:46.404868	10
-66	12	0.010	mg	2012-09-02 00:43:42.400768	11
-15	4	0.010	mg	2012-08-30 19:57:46.404868	11
-16	4	0.024	mg	2012-08-30 19:57:46.404868	12
-63	12	0.008	mg	2012-09-02 00:43:42.396094	13
-49	11	0.008	mg	2012-08-30 19:57:46.404868	13
-34	9	0.008	mg	2012-08-30 19:57:46.404868	13
-27	8	0.003	mg	2012-08-30 19:57:46.404868	13
-18	2	0.008	mg	2012-08-30 19:57:46.404868	13
-72	12	3.3	mg	2012-09-02 00:43:47.267181	14
-31	8	3.3	mg	2012-08-30 19:57:46.404868	14
-73	12	50	ng	2012-09-02 00:43:47.268192	15
-56	11	0	mg	2012-08-30 19:57:46.404868	15
-41	9	0	mg	2012-08-30 19:57:46.404868	15
-24	2	0	mg	2012-08-30 19:57:46.404868	15
-54	11	4.5	mg	2012-08-30 19:57:46.404868	16
-39	9	4.5	mg	2012-08-30 19:57:46.404868	16
-25	2	4.5	mg	2012-08-30 19:57:46.404868	16
-42	9	0.010	mg	2012-08-30 19:57:46.404868	17
-76	12	40	DU	2012-09-02 00:43:51.666745	18
-57	11	40	DU	2012-08-30 19:57:46.404868	18
-43	9	40	DU	2012-08-30 19:57:46.404868	18
-77	12	8	DU	2012-09-02 00:43:51.782274	19
-58	11	8	DU	2012-08-30 19:57:46.404868	19
-44	9	8	DU	2012-08-30 19:57:46.404868	19
-45	9	32	DU	2012-08-30 19:57:46.404868	20
-46	9	0.05	ng	2012-08-30 19:57:46.404868	21
-78	12	32	DU	2012-09-02 00:43:51.783501	20
-59	11	32	DU	2012-08-30 19:57:46.404868	20
-79	12	4	pg	2012-09-02 00:43:51.784532	21
-60	11	0.05	ng	2012-08-30 19:57:46.404868	21
-80	12	4	pg	2012-09-02 00:43:51.78561	22
-61	11	0.01	ng	2012-08-30 19:57:46.404868	22
-47	9	0.01	ng	2012-08-30 19:57:46.404868	22
-67	12	0.024	mg	2012-09-02 00:43:42.401536	23
-70	12	42.5	mg	2012-09-02 00:43:47.170731	24
-75	12	0.0	mg	2012-09-02 00:43:47.271754	26
+COPY vaccine_components (component_id, vaccine_id, dose, current_as_of, normalized_component_id, dose_measurement) FROM stdin;
+68	12	0.005	2012-09-02 00:43:42.40273	1	5
+52	11	0.100	2012-08-30 19:57:46.404868	1	5
+37	9	0.100	2012-08-30 19:57:46.404868	1	5
+30	8	0.005	2012-08-30 19:57:46.404868	1	5
+22	2	0.100	2012-08-30 19:57:46.404868	1	5
+9	4	0.100	2012-08-30 19:57:46.404868	1	5
+1	1	0.100	2012-08-30 19:57:46.404868	1	5
+10	4	0.03	2012-08-30 19:57:46.404868	2	5
+2	1	0.03	2012-08-30 19:57:46.404868	2	5
+62	12	0.020	2012-09-02 00:43:42.297587	3	5
+48	11	0.025	2012-08-30 19:57:46.404868	3	5
+33	9	0.025	2012-08-30 19:57:46.404868	3	5
+26	8	0.010	2012-08-30 19:57:46.404868	3	5
+17	2	0.025	2012-08-30 19:57:46.404868	3	5
+11	4	0.0468	2012-08-30 19:57:46.404868	3	5
+3	1	0.0468	2012-08-30 19:57:46.404868	3	5
+64	12	15	2012-09-02 00:43:42.398848	4	2
+50	11	25	2012-08-30 19:57:46.404868	4	2
+35	9	25	2012-08-30 19:57:46.404868	4	2
+28	8	15	2012-08-30 19:57:46.404868	4	2
+19	2	25	2012-08-30 19:57:46.404868	4	2
+12	4	6.7	2012-08-30 19:57:46.404868	4	2
+74	12	50	2012-09-02 00:43:47.269155	25	6
+38	9	0.085	2012-08-30 19:57:46.404868	29	5
+53	11	0.085	2012-08-30 19:57:46.404868	29	5
+4	1	6.7	2012-08-30 19:57:46.404868	4	2
+65	12	5	2012-09-02 00:43:42.399888	5	2
+51	11	10	2012-08-30 19:57:46.404868	5	2
+36	9	10	2012-08-30 19:57:46.404868	5	2
+29	8	5	2012-08-30 19:57:46.404868	5	2
+20	2	10	2012-08-30 19:57:46.404868	5	2
+14	4	5	2012-08-30 19:57:46.404868	5	2
+6	1	5	2012-08-30 19:57:46.404868	5	2
+13	4	0.170	2012-08-30 19:57:46.404868	6	5
+5	1	0.170	2012-08-30 19:57:46.404868	6	5
+21	2	0.625	2012-08-30 19:57:46.404868	7	5
+69	12	1.5	2012-09-02 00:43:42.404042	8	5
+32	8	1.5	2012-08-30 19:57:46.404868	8	5
+71	12	10	2012-09-02 00:43:47.266026	9	4
+55	11	0.100	2012-08-30 19:57:46.404868	9	5
+40	9	0.100	2012-08-30 19:57:46.404868	9	5
+23	2	0.100	2012-08-30 19:57:46.404868	9	5
+7	1	0	2012-08-30 19:57:46.404868	9	5
+8	1	0	2012-08-30 19:57:46.404868	10	5
+66	12	0.010	2012-09-02 00:43:42.400768	11	5
+15	4	0.010	2012-08-30 19:57:46.404868	11	5
+16	4	0.024	2012-08-30 19:57:46.404868	12	5
+63	12	0.008	2012-09-02 00:43:42.396094	13	5
+49	11	0.008	2012-08-30 19:57:46.404868	13	5
+34	9	0.008	2012-08-30 19:57:46.404868	13	5
+27	8	0.003	2012-08-30 19:57:46.404868	13	5
+18	2	0.008	2012-08-30 19:57:46.404868	13	5
+72	12	3.3	2012-09-02 00:43:47.267181	14	5
+31	8	3.3	2012-08-30 19:57:46.404868	14	5
+73	12	50	2012-09-02 00:43:47.268192	15	6
+56	11	0	2012-08-30 19:57:46.404868	15	5
+41	9	0	2012-08-30 19:57:46.404868	15	5
+24	2	0	2012-08-30 19:57:46.404868	15	5
+54	11	4.5	2012-08-30 19:57:46.404868	16	5
+39	9	4.5	2012-08-30 19:57:46.404868	16	5
+25	2	4.5	2012-08-30 19:57:46.404868	16	5
+42	9	0.010	2012-08-30 19:57:46.404868	17	5
+76	12	40	2012-09-02 00:43:51.666745	18	3
+57	11	40	2012-08-30 19:57:46.404868	18	3
+43	9	40	2012-08-30 19:57:46.404868	18	3
+77	12	8	2012-09-02 00:43:51.782274	19	3
+58	11	8	2012-08-30 19:57:46.404868	19	3
+44	9	8	2012-08-30 19:57:46.404868	19	3
+45	9	32	2012-08-30 19:57:46.404868	20	3
+46	9	0.05	2012-08-30 19:57:46.404868	21	6
+78	12	32	2012-09-02 00:43:51.783501	20	3
+59	11	32	2012-08-30 19:57:46.404868	20	3
+79	12	4	2012-09-02 00:43:51.784532	21	1
+60	11	0.05	2012-08-30 19:57:46.404868	21	6
+80	12	4	2012-09-02 00:43:51.78561	22	1
+61	11	0.01	2012-08-30 19:57:46.404868	22	6
+47	9	0.01	2012-08-30 19:57:46.404868	22	6
+67	12	0.024	2012-09-02 00:43:42.401536	23	5
+70	12	42.5	2012-09-02 00:43:47.170731	24	5
+75	12	0.0	2012-09-02 00:43:47.271754	26	5
 \.
 
 
 --
--- Data for Name: vaccine_type; Type: TABLE DATA; Schema: vic; Owner: mschrimshaw
+-- Data for Name: vaccine_type; Type: TABLE DATA; Schema: vic; Owner: vic
 --
 
 COPY vaccine_type (vaccine_type_id, name, cvx) FROM stdin;
@@ -671,7 +708,7 @@ COPY vaccine_type (vaccine_type_id, name, cvx) FROM stdin;
 
 
 --
--- Data for Name: vaccines; Type: TABLE DATA; Schema: vic; Owner: mschrimshaw
+-- Data for Name: vaccines; Type: TABLE DATA; Schema: vic; Owner: vic
 --
 
 COPY vaccines (vaccine_id, manufacturer_id, vaccine_type_id, vaccine_name, combo_vaccine, dose, dose_measurement, current_as_of) FROM stdin;
@@ -687,11 +724,12 @@ COPY vaccines (vaccine_id, manufacturer_id, vaccine_type_id, vaccine_name, combo
 10	2	4	Kinrix	1	0.5	ml	2012-08-30 15:17:47.073155
 12	1	5	Pentacel	1	0.5	ml	2012-09-01 22:22:58.799466
 13	1	1	Adacel	1	0.5	ml	2012-09-03 11:38:50.294041
+14	1	21	Boostrix	1	0.5	ml	2012-09-08 04:01:05.911766
 \.
 
 
 --
--- Name: disease_id; Type: CONSTRAINT; Schema: vic; Owner: mschrimshaw; Tablespace: 
+-- Name: disease_id; Type: CONSTRAINT; Schema: vic; Owner: vic; Tablespace: 
 --
 
 ALTER TABLE ONLY disease
@@ -699,7 +737,7 @@ ALTER TABLE ONLY disease
 
 
 --
--- Name: manufacturer_id; Type: CONSTRAINT; Schema: vic; Owner: mschrimshaw; Tablespace: 
+-- Name: manufacturer_id; Type: CONSTRAINT; Schema: vic; Owner: vic; Tablespace: 
 --
 
 ALTER TABLE ONLY manufacturer
@@ -707,7 +745,15 @@ ALTER TABLE ONLY manufacturer
 
 
 --
--- Name: normalized_id; Type: CONSTRAINT; Schema: vic; Owner: mschrimshaw; Tablespace: 
+-- Name: measurements_pkey; Type: CONSTRAINT; Schema: vic; Owner: vic; Tablespace: 
+--
+
+ALTER TABLE ONLY measurements
+    ADD CONSTRAINT measurements_pkey PRIMARY KEY (measurement, measurement_id);
+
+
+--
+-- Name: normalized_id; Type: CONSTRAINT; Schema: vic; Owner: vic; Tablespace: 
 --
 
 ALTER TABLE ONLY normalized_vaccine_components
@@ -715,7 +761,7 @@ ALTER TABLE ONLY normalized_vaccine_components
 
 
 --
--- Name: vaccine_component_id; Type: CONSTRAINT; Schema: vic; Owner: mschrimshaw; Tablespace: 
+-- Name: vaccine_component_id; Type: CONSTRAINT; Schema: vic; Owner: vic; Tablespace: 
 --
 
 ALTER TABLE ONLY vaccine_components
@@ -723,7 +769,7 @@ ALTER TABLE ONLY vaccine_components
 
 
 --
--- Name: vaccine_type_id; Type: CONSTRAINT; Schema: vic; Owner: mschrimshaw; Tablespace: 
+-- Name: vaccine_type_id; Type: CONSTRAINT; Schema: vic; Owner: vic; Tablespace: 
 --
 
 ALTER TABLE ONLY vaccine_type
@@ -731,7 +777,7 @@ ALTER TABLE ONLY vaccine_type
 
 
 --
--- Name: vaccines_id; Type: CONSTRAINT; Schema: vic; Owner: mschrimshaw; Tablespace: 
+-- Name: vaccines_id; Type: CONSTRAINT; Schema: vic; Owner: vic; Tablespace: 
 --
 
 ALTER TABLE ONLY vaccines
@@ -739,21 +785,28 @@ ALTER TABLE ONLY vaccines
 
 
 --
--- Name: normalized_vaccine_components_normalized_id_key; Type: INDEX; Schema: vic; Owner: mschrimshaw; Tablespace: 
+-- Name: measurements_measurement_id_key; Type: INDEX; Schema: vic; Owner: vic; Tablespace: 
+--
+
+CREATE UNIQUE INDEX measurements_measurement_id_key ON measurements USING btree (measurement_id);
+
+
+--
+-- Name: normalized_vaccine_components_normalized_id_key; Type: INDEX; Schema: vic; Owner: vic; Tablespace: 
 --
 
 CREATE UNIQUE INDEX normalized_vaccine_components_normalized_id_key ON normalized_vaccine_components USING btree (normalized_id);
 
 
 --
--- Name: vaccines_idx; Type: INDEX; Schema: vic; Owner: mschrimshaw; Tablespace: 
+-- Name: vaccines_idx; Type: INDEX; Schema: vic; Owner: vic; Tablespace: 
 --
 
 CREATE INDEX vaccines_idx ON vaccines USING btree (manufacturer_id);
 
 
 --
--- Name: fK_component_id; Type: FK CONSTRAINT; Schema: vic; Owner: mschrimshaw
+-- Name: fK_component_id; Type: FK CONSTRAINT; Schema: vic; Owner: vic
 --
 
 ALTER TABLE ONLY vaccine_components
@@ -761,7 +814,15 @@ ALTER TABLE ONLY vaccine_components
 
 
 --
--- Name: manufacturer_vaccines_fk; Type: FK CONSTRAINT; Schema: vic; Owner: mschrimshaw
+-- Name: fk_dose_measurement; Type: FK CONSTRAINT; Schema: vic; Owner: vic
+--
+
+ALTER TABLE ONLY vaccine_components
+    ADD CONSTRAINT fk_dose_measurement FOREIGN KEY (dose_measurement) REFERENCES measurements(measurement_id);
+
+
+--
+-- Name: manufacturer_vaccines_fk; Type: FK CONSTRAINT; Schema: vic; Owner: vic
 --
 
 ALTER TABLE ONLY vaccines
@@ -769,7 +830,7 @@ ALTER TABLE ONLY vaccines
 
 
 --
--- Name: vaccine_type_disease_fk; Type: FK CONSTRAINT; Schema: vic; Owner: mschrimshaw
+-- Name: vaccine_type_disease_fk; Type: FK CONSTRAINT; Schema: vic; Owner: vic
 --
 
 ALTER TABLE ONLY disease
@@ -777,7 +838,7 @@ ALTER TABLE ONLY disease
 
 
 --
--- Name: vaccine_type_vaccines_fk; Type: FK CONSTRAINT; Schema: vic; Owner: mschrimshaw
+-- Name: vaccine_type_vaccines_fk; Type: FK CONSTRAINT; Schema: vic; Owner: vic
 --
 
 ALTER TABLE ONLY vaccines
@@ -795,12 +856,12 @@ GRANT ALL ON SCHEMA public TO PUBLIC;
 
 
 --
--- Name: vic; Type: ACL; Schema: -; Owner: mschrimshaw
+-- Name: vic; Type: ACL; Schema: -; Owner: vic
 --
 
 REVOKE ALL ON SCHEMA vic FROM PUBLIC;
-REVOKE ALL ON SCHEMA vic FROM mschrimshaw;
-GRANT ALL ON SCHEMA vic TO mschrimshaw;
+REVOKE ALL ON SCHEMA vic FROM vic;
+GRANT ALL ON SCHEMA vic TO vic;
 
 
 --
