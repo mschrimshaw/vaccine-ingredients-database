@@ -1,0 +1,86 @@
+Adenovirus types 4 and 7|Adenovirus types 4 and 7|143|Barr Laboratories|BRR|Active|Active|2012/08/07|
+BIOTHRAX|anthrax|24 |Emergent BioDefense Operations Lansing|MIP|Active|Active|2010/05/28|
+MYCOBAX|BCG|19 |sanofi pasteur|PMC|Active|Active|2010/05/28|
+TICE BCG|BCG|19 |Organon Teknika Corporation|OTC|Active|Active|2010/05/28|
+DT(GENERIC)|DT (pediatric)|28 |sanofi pasteur|PMC|Active|Active|2010/05/28|
+ACEL-IMUNE|DTaP|20 |Wyeth|WAL|Active|Inactive|2010/09/01|
+CERTIVA|DTaP|20 |North American Vaccine Inc.|NAV|Inactive|Inactive|2010/09/01|
+INFANRIX|DTaP|20 |GlaxoSmithKline|SKB|Active|Active|2010/05/28|
+TRIPEDIA|DTaP|20 |sanofi pasteur|PMC|Active|Active|2010/05/28|
+DAPTACEL|DTaP 5 pertussis antigens|106|sanofi pasteur|PMC|Active|Active|2010/05/28|
+PEDIARIX|DTaP-Hep B-IPV|110|GlaxoSmithKline|SKB|Active|Active|2010/05/28|
+TRIHIBIT|DTaP-Hib|50 |sanofi pasteur|PMC|Active|Active|2010/05/28|
+PENTACEL|DTaP-Hib-IPV|120|sanofi pasteur|PMC|Active|Active|2010/05/28|
+KINRIX|DTaP-IPV|130|GlaxoSmithKline|SKB|Active|Active|2010/05/28|
+TETRAMUNE|DTP-Hib|22 |Wyeth|WAL|Active|Inactive|2010/09/01|
+HAVRIX-ADULT|Hep A adult|52 |GlaxoSmithKline|SKB|Active|Active|2010/05/28|
+VAQTA-ADULT|Hep A adult|52 |Merck & Co. Inc.|MSD|Active|Active|2010/05/28|
+HAVRIX-PEDS|Hep A ped/adol 2 dose|83 |GlaxoSmithKline|SKB|Active|Active|2010/05/28|
+VAQTA-PEDS|Hep A ped/adol 2 dose|83 |Merck & Co. Inc.|MSD|Active|Active|2010/05/28|
+TWINRIX|Hep A-Hep B|104|GlaxoSmithKline|SKB|Active|Active|2010/05/28|
+ENGERIX B-PEDS|Hep B adolescent or pediatric|08 |GlaxoSmithKline|SKB|Active|Active|2010/05/28|
+RECOMBIVAX-PEDS|Hep B adolescent or pediatric|08 |Merck & Co. Inc.|MSD|Active|Active|2010/05/28|
+ENGERIX-B-ADULT|Hep B adult|43 |GlaxoSmithKline|SKB|Active|Active|2010/05/28|
+RECOMBIVAX-ADULT|Hep B adult|43 |Merck & Co. Inc.|MSD|Active|Active|2010/05/28|
+RECOMBIVAX-DIALYSIS|Hep B dialysis|44 |Merck & Co. Inc.|MSD|Active|Active|2010/09/20|
+HIBTITER|Hib (HbOC)|47 |Wyeth|WAL|Active|Inactive|2010/08/18|
+PROHIBIT|Hib (PRP-D)|46 |sanofi pasteur|PMC|Active|Inactive|2010/09/01|
+PEDVAXHIB|Hib (PRP-OMP)|49 |Merck & Co. Inc.|MSD|Active|Active|2010/05/28|
+ACTHIB|Hib (PRP-T)|48 |sanofi pasteur|PMC|Active|Active|2010/05/28|
+HIBERIX|Hib (PRP-T)|48 |GlaxoSmithKline|SKB|Active|Active|2010/05/28|
+OMNIHIB|Hib (PRP-T)|48 |GlaxoSmithKline|SKB|Active|Inactive|2010/09/01|
+COMVAX|Hib-Hep B|51 |Merck & Co. Inc.|MSD|Active|Active|2010/05/28|
+CERVARIX|HPV bivalent|118|GlaxoSmithKline|SKB|Active|Active|2010/05/28|
+GARDASIL|HPV quadrivalent|62 |Merck & Co. Inc.|MSD|Active|Active|2010/05/28|
+FLUZONE-HIGH DOSE|Influenza high dose seasonal|135|sanofi pasteur|PMC|Active|Active|2010/05/28|
+FLUMIST|influenza live intranasal|111|MedImmune Inc.|MED|Active|Active|2010/05/28|
+Flumist quadrivalent|influenza live intranasal quadrivalent|149|MedImmune Inc.|MED|Active|Active|2012/08/07|
+AFLURIA|Influenza seasonal injectable|141|CSL Behring Inc|CSL|Active|Active|2011/04/25|
+FLULAVAL|Influenza seasonal injectable|141|GlaxoSmithKline|SKB|Active|Active|2010/09/27|
+FLUVIRIN|Influenza seasonal injectable|141|Novartis Pharmaceutical Corporation|NOV|Active|Active|2010/09/27|
+FLUZONE|Influenza seasonal injectable|141|sanofi pasteur|PMC|Active|Active|2010/09/27|
+Afluria preservative free|Influenza seasonal injectable preservative free|140|CSL Behring Inc|CSL|Active||2011/05/02|
+AGRIFLU|Influenza seasonal injectable preservative free|140|Novartis Pharmaceutical Corporation|NOV|Active|Active|2010/09/27|
+FLUARIX|Influenza seasonal injectable preservative free|140|GlaxoSmithKline|SKB|Active|Active|2010/09/27|
+FLUVIRIN-PRESERVATIVE FREE|Influenza seasonal injectable preservative free|140|Novartis Pharmaceutical Corporation|NOV|Active|Active|2010/09/27|
+FLUZONE-PRESERVATIVE FREE|Influenza seasonal injectable preservative free|140|sanofi pasteur|PMC|Active|Active|2010/09/27|
+Fluzone intradermal|influenza seasonal intradermal preservative free|144|sanofi pasteur|PMC|Active|Active|2011/06/30|
+IPOL|IPV|10 |sanofi pasteur|PMC|Active|Active|2010/05/28|
+IXIARO|Japanese Encephalitis IM|134|Intercell Biomedical|INT|Active|Active|2010/05/28|
+JE-VAX|Japanese encephalitis SC|39 |The Research Foundation for Microbial Diseases of Osaka University (BIKEN)|JPN|Active|Active|2010/05/28|
+ATTENUVAX|measles|05 |Merck & Co. Inc.|MSD|Active|Active|2012/08/07|
+MENHIBRIX|Meningococcal C/Y-HIB PRP|148|GlaxoSmithKline|SKB|Active|Active|2012/07/11|
+MENVEO|Meningococcal MCV4O|136|Novartis Pharmaceutical Corporation|NOV|Active|Active|2010/08/16|
+MENACTRA|meningococcal MCV4P|114|sanofi pasteur|PMC|Active|Active|2010/05/28|
+MENOMUNE|meningococcal MPSV4|32 |sanofi pasteur|PMC|Active|Active|2010/05/28|
+M-M-R II|MMR|03 |Merck & Co. Inc.|MSD|Active|Active|2010/05/28|
+PROQUAD|MMRV|94 |Merck & Co. Inc.|MSD|Active|Active|2010/05/28|
+MUMPSVAX|mumps|07 |Merck & Co. Inc.|MSD|Active|Inactive|2010/09/01|
+ORIMUNE|OPV|02 |Wyeth|WAL|Active|Inactive|2010/09/01|
+PREVNAR 13|Pneumococcal conjugate PCV 13|133|Wyeth|WAL|Active|Inactive|2010/05/28|
+PREVNAR 13|Pneumococcal conjugate PCV 13|133|Pfizer Inc|PFR|Active|Active|2010/05/28|
+PREVNAR 7|pneumococcal conjugate PCV 7|100|Wyeth|WAL|Active|Active|2010/05/28|
+PNEUMOVAX 23|pneumococcal polysaccharide PPV23|33 |Merck & Co. Inc.|MSD|Active|Active|2010/05/28|
+IMOVAX ID|rabies intradermal injection|40 |sanofi pasteur|PMC|Active|Inactive|2010/08/18|
+RabAvert|rabies intradermal injection|40 |Chiron Corporation|CHI|Inactive|Inactive|2010/05/28|
+IMOVAX|rabies intramuscular injection|18 |sanofi pasteur|PMC|Active|Active|2010/05/28|
+RABAVERT|rabies intramuscular injection|18 |Novartis Pharmaceutical Corporation|NOV|Active|Active|2010/05/28|
+ROTARIX|rotavirus monovalent|119|GlaxoSmithKline|SKB|Active|Active|2010/05/28|
+ROTATEQ|rotavirus pentavalent|116|Merck & Co. Inc.|MSD|Active|Active|2010/05/28|
+MERUVAX II|rubella|06 |Merck & Co. Inc.|MSD|Active|Active|2010/08/18|
+BIAVAX II|rubella/mumps|38 |Merck & Co. Inc.|MSD|Active|Inactive|2010/09/01|
+DECAVAC|Td (adult) preservative free|113|sanofi pasteur|PMC|Active|Active|2010/05/28|
+Tenivac|Td (adult) preservative free|113|sanofi pasteur|PMC|Active|Active|2012/08/02|
+TD(GENERIC)|Td (adult) adsorbed|09 |Massachusetts Biologic Laboratories|MBL|Active|Active|2010/05/28|
+ADACEL|Tdap|115|sanofi pasteur|PMC|Active|Active|2010/05/28|
+BOOSTRIX|Tdap|115|GlaxoSmithKline|SKB|Active|Active|2010/05/28|
+TETANUS TOXOID (GENERIC)|tetanus toxoid adsorbed|35 |sanofi pasteur|PMC|Active|Active|2010/05/28|
+VIVOTIF BERNA|typhoid oral|25 |Berna Products Corporation|BPC|Active|Active|2011/02/14|
+TYPHOID-AKD|typhoid parenteral AKD (U.S. military)|53 |United States Army Medical Research and Material Command|USA|Active|Active|2010/09/01|
+TYPHIM VI|typhoid ViCPs|101|sanofi pasteur|PMC|Active|Active|2010/05/28|
+ACAM2000|vaccinia (smallpox)|75 |sanofi pasteur|PMC|Active|Active|2010/05/28|
+ACAM2000|vaccinia (smallpox)|75 |Acambis Inc|ACA|Inactive|Inactive|2010/05/28|
+DRYVAX|vaccinia (smallpox)|75 |Wyeth|WAL|Active|Inactive|2010/09/01|
+VARIVAX|varicella|21 |Merck & Co. Inc.|MSD|Active|Active|2010/05/28|
+YF-VAX|yellow fever|37 |sanofi pasteur|PMC|Active|Active|2010/05/28|
+ZOSTAVAX|zoster|121|Merck & Co. Inc.|MSD|Active|Active|2010/05/28|
