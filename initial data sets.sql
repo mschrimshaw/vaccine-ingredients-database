@@ -87,6 +87,17 @@ insert into vic.vaccines (vaccine_name, manufacturer_id, vaccine_type_id, combo_
 insert into vic.vaccines (vaccine_name, manufacturer_id, vaccine_type_id, combo_vaccine, dose) values ('Recombivax HB',3,17,'0',1.0);
 insert into vic.vaccines (vaccine_name, manufacturer_id, vaccine_type_id, combo_vaccine, dose) values ('Recombivax HB',3,18,'0',1.0);
 
+insert into vic.vaccines (vaccine_name, manufacturer_id, vaccine_type_id, combo_vaccine, dose) values ('ENGERIX-B HB',3,16,'0',0.5);
+insert into vic.vaccines (vaccine_name, manufacturer_id, vaccine_type_id, combo_vaccine, dose) values ('ENGERIX-B HB',3,17,'0',1.0);
+insert into vic.vaccines (vaccine_name, manufacturer_id, vaccine_type_id, combo_vaccine, dose) values ('ENGERIX-B HB',3,18,'0',1.0);
+
+insert into vic.vaccines (vaccine_name, manufacturer_id, vaccine_type_id, combo_vaccine, dose) values ('Cervarix',3,19,'0',0.5);
+
+Cervarix
+
+Shingles
+
+
 
 -- normalized_vaccine_components
 insert into vic.normalized_vaccine_components (component_name) values ('formaldehyde');
@@ -451,5 +462,10 @@ disodium phosphate dihydrate 0.98 mg
 sodium dihydrogen phosphate dihydrate, 0.71 mg
 sodium chloride 9mg
 yeast protein
+
+
+Cervarix
+
+Shingles
 
 
