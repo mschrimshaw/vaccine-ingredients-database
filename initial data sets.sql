@@ -37,6 +37,7 @@ insert into vic.vaccine_type (name,CVX) values ('PCV13',133);
 insert into vic.vaccine_type (name,CVX) values ('PCV7',100);
 insert into vic.vaccine_type (name,CVX) values ('PCV23',33);
 
+insert into vic.vaccine_type (name,CVX) values ('Zoster',121);
 
 
 
@@ -60,6 +61,7 @@ insert into vic.disease (disease, vaccine_type_id) values ('Polio',21);
 insert into vic.disease (disease, vaccine_type_id) values ('Human Papaloma Virus 4',19);
 insert into vic.disease (disease, vaccine_type_id) values ('Human Papaloma Virus 2',20);
 insert into vic.disease (disease, vaccine_type_id) values ('Hib-Hep B',9);
+insert into vic.disease (disease, vaccine_type_id) values ('Shingles',25);
 
 
 
@@ -93,9 +95,9 @@ insert into vic.vaccines (vaccine_name, manufacturer_id, vaccine_type_id, combo_
 
 insert into vic.vaccines (vaccine_name, manufacturer_id, vaccine_type_id, combo_vaccine, dose) values ('Cervarix',3,19,'0',0.5);
 
-Cervarix
+insert into vic.vaccines (vaccine_name, manufacturer_id, vaccine_type_id, combo_vaccine, dose) values ('Zostavax',3,25,'0',0.65);
 
-Shingles
+Cervarix
 
 
 
@@ -148,7 +150,6 @@ insert into vic.normalized_vaccine_components (component_name) values ('live mea
 insert into vic.normalized_vaccine_components (component_name) values ('live mumps virus');
 insert into vic.normalized_vaccine_components (component_name) values ('live rubella virus');
 
-
 insert into vic.normalized_vaccine_components (component_name) values ('Streptococcus pneumoniae serotype 4');
 insert into vic.normalized_vaccine_components (component_name) values ('Streptococcus pneumoniae serotype 9V');
 insert into vic.normalized_vaccine_components (component_name) values ('Streptococcus pneumoniae serotype 14');
@@ -182,6 +183,15 @@ insert into vic.normalized_vaccine_components (component_name) values ('Streptoc
 insert into vic.normalized_vaccine_components (component_name) values ('Streptococcus pneumoniae serotype 20');
 insert into vic.normalized_vaccine_components (component_name) values ('Streptococcus pneumoniae serotype 22F');
 insert into vic.normalized_vaccine_components (component_name) values ('Streptococcus pneumoniae serotype 33F');
+
+insert into vic.normalized_vaccine_components (component_name) values ('hydrolyzed porcine gelatin');
+
+insert into vic.normalized_vaccine_components (component_name) values ('live Varicella-Zoster virus');
+
+insert into vic.normalized_vaccine_components (component_name) values ('sodium phosphate dibasic');
+insert into vic.normalized_vaccine_components (component_name) values ('potassium phosphate monobasic');
+insert into vic.normalized_vaccine_components (component_name) values ('bovine calf serum ');
+insert into vic.normalized_vaccine_components (component_name) values ('potassium chloride');
 
 
 ******* 
@@ -466,6 +476,28 @@ yeast protein
 
 Cervarix
 
-Shingles
+
+Zostavax
+
+19,400 PFU live Varicella-Zoster virus
+31.16 mg sucrose
+15.58 mg hydrolyzed porcine gelatin 
+3.99 mg sodium chloride
+0.62 mg monosodium L-glutamate
+0.57 mg sodium phosphate dibasic
+0.10 mg potassium phosphate monobasic
+0.10 mg potassium chloride
+MRC-5/human diploid cells
+Neomycin
+bovine calf serum 
+
+
+
+
+
+
+
+
+
 
 
