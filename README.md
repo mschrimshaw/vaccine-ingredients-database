@@ -97,12 +97,14 @@ need to be repeated as they currently are.
 
 ```sql
 WITH vax_id AS (
-SELECT vaccine_id FROM vic.vaccines WHERE vaccine_name='Adacel'
+SELECT vaccine_id FROM vic.vaccines WHERE vaccine_name='Pentacel'
 ), vax_component AS ( 
-SELECT normalized_id FROM vic.normalized_vaccine_components WHERE component_name='pertactin'
+SELECT normalized_id FROM vic.normalized_vaccine_components WHERE component_name ILIKE 'diptheria toxoid'
+), dose_measurement AS (
+SELECT measurement_id FROM vic.measurements WHERE measurement = 'Lf'
 )
 INSERT INTO vic.vaccine_components(vaccine_id, normalized_component_id, dose, dose_measurement) 
-SELECT * FROM vax_id, vax_component,cast(concat(3) as DECIMAL) as dose, concat('mcg') as dose_measurement
+SELECT * FROM vax_id, vax_component,cast(concat(15) as DECIMAL) as dose, dose_measurement
 ```
 
 The vaccine_component column on the vaccine_components table can now be dropped.
