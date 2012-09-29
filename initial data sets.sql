@@ -9,35 +9,37 @@ insert into vic.manufacturer (company_name, MVX) values ('MedImmune', 'MED');
 insert into vic.manufacturer (company_name, MVX) values ('Wyeth', 'PFR');
 
 
-insert into vic.vaccine_type (name,CVX) values ('DTaP',20);
-insert into vic.vaccine_type (name,CVX) values ('Tdap',115);
-insert into vic.vaccine_type (name,CVX) values ('DTaP-Hib',50);
-insert into vic.vaccine_type (name,CVX) values ('DTaP-Hep B-IPV',110);
-insert into vic.vaccine_type (name,CVX) values ('DTaP-IPV',130);
-insert into vic.vaccine_type (name,CVX) values ('DTaP-Hib-IPV',120);
-insert into vic.vaccine_type (name,CVX) values ('Hib (PRP-OMP)',48);
-insert into vic.vaccine_type (name,CVX) values ('Hib (PRP-T)',49);
-insert into vic.vaccine_type (name,CVX) values ('Hib-Hep B',51);
-insert into vic.vaccine_type (name,CVX) values ('MMR',03);
-insert into vic.vaccine_type (name,CVX) values ('MMRV',94);
-insert into vic.vaccine_type (name,CVX) values ('Varicella',21);
+insert into vic.vaccine_type (vaccine_type, cvx) values ('DTaP',20);
+insert into vic.vaccine_type (vaccine_type, cvx) values ('Tdap',115);
+insert into vic.vaccine_type (vaccine_type, cvx) values ('DTaP-Hib',50);
+insert into vic.vaccine_type (vaccine_type, cvx) values ('DTaP-Hep B-IPV',110);
+insert into vic.vaccine_type (vaccine_type, cvx) values ('DTaP-IPV',130);
+insert into vic.vaccine_type (vaccine_type, cvx) values ('DTaP-Hib-IPV',120);
+insert into vic.vaccine_type (vaccine_type, cvx) values ('Hib (PRP-OMP)',48);
+insert into vic.vaccine_type (vaccine_type, cvx) values ('Hib (PRP-T)',49);
+insert into vic.vaccine_type (vaccine_type, cvx) values ('Hib-Hep B',51);
+insert into vic.vaccine_type (vaccine_type, cvx) values ('MMR',03);
+insert into vic.vaccine_type (vaccine_type, cvx) values ('MMRV',94);
+insert into vic.vaccine_type (vaccine_type, cvx) values ('Varicella',21);
 
-insert into vic.vaccine_type (name,CVX) values ('Hep A-adult',52);
-insert into vic.vaccine_type (name,CVX) values ('Hep A-ped or adol 2 dose',83);
-insert into vic.vaccine_type (name,CVX) values ('Hep A-Hep B',104);
+insert into vic.vaccine_type (vaccine_type, cvx) values ('Hep A-adult',52);
+insert into vic.vaccine_type (vaccine_type, cvx) values ('Hep A-ped or adol 2 dose',83);
+insert into vic.vaccine_type (vaccine_type, cvx) values ('Hep A-Hep B',104);
 
-insert into vic.vaccine_type (name,CVX) values ('Hep B-adol or ped',08);
-insert into vic.vaccine_type (name,CVX) values ('Hep B-adult',43);
-insert into vic.vaccine_type (name,CVX) values ('Hep B-dialysis',44);
+insert into vic.vaccine_type (vaccine_type, cvx) values ('Hep B-adol or ped',08);
+insert into vic.vaccine_type (vaccine_type, cvx) values ('Hep B-adult',43);
+insert into vic.vaccine_type (vaccine_type, cvx) values ('Hep B-dialysis',44);
 
-insert into vic.vaccine_type (name,CVX) values ('HPV-4',62);
-insert into vic.vaccine_type (name,CVX) values ('HPV-2',118);
-insert into vic.vaccine_type (name,CVX) values ('IPV',10);
-insert into vic.vaccine_type (name,CVX) values ('PCV13',133);
-insert into vic.vaccine_type (name,CVX) values ('PCV7',100);
-insert into vic.vaccine_type (name,CVX) values ('PCV23',33);
+insert into vic.vaccine_type (vaccine_type, cvx) values ('HPV-4',62);
+insert into vic.vaccine_type (vaccine_type, cvx) values ('HPV-2',118);
+insert into vic.vaccine_type (vaccine_type, cvx) values ('IPV',10);
+insert into vic.vaccine_type (vaccine_type, cvx) values ('PCV13',133);
+insert into vic.vaccine_type (vaccine_type, cvx) values ('PCV7',100);
+insert into vic.vaccine_type (vaccine_type, cvx) values ('PCV23',33);
 
-insert into vic.vaccine_type (name,CVX) values ('Zoster',121);
+insert into vic.vaccine_type (vaccine_type, cvx) values ('Zoster',121);
+insert into vic.vaccine_type (vaccine_type, cvx) values ('Meningococcal C/Y-HIB PRP',148);
+
 
 
 
@@ -62,7 +64,7 @@ insert into vic.disease (disease, vaccine_type_id) values ('Human Papaloma Virus
 insert into vic.disease (disease, vaccine_type_id) values ('Human Papaloma Virus 2',20);
 insert into vic.disease (disease, vaccine_type_id) values ('Hib-Hep B',9);
 insert into vic.disease (disease, vaccine_type_id) values ('Shingles',25);
-
+insert into vic.disease (disease, vaccine_type_id) values ('Meningitis, Hib',26);
 
 
 
@@ -97,8 +99,7 @@ insert into vic.vaccines (vaccine_name, manufacturer_id, vaccine_type_id, combo_
 
 insert into vic.vaccines (vaccine_name, manufacturer_id, vaccine_type_id, combo_vaccine, dose) values ('Zostavax',3,25,'0',0.65);
 
-Cervarix
-
+insert into vic.vaccines (vaccine_name, manufacturer_id, vaccine_type_id, combo_vaccine, dose) values ('Menhibrix',2,26,'1',0.5);
 
 
 -- normalized_vaccine_components
@@ -185,14 +186,15 @@ insert into vic.normalized_vaccine_components (component_name) values ('Streptoc
 insert into vic.normalized_vaccine_components (component_name) values ('Streptococcus pneumoniae serotype 33F');
 
 insert into vic.normalized_vaccine_components (component_name) values ('hydrolyzed porcine gelatin');
-
 insert into vic.normalized_vaccine_components (component_name) values ('live Varicella-Zoster virus');
-
 insert into vic.normalized_vaccine_components (component_name) values ('sodium phosphate dibasic');
 insert into vic.normalized_vaccine_components (component_name) values ('potassium phosphate monobasic');
 insert into vic.normalized_vaccine_components (component_name) values ('bovine calf serum ');
 insert into vic.normalized_vaccine_components (component_name) values ('potassium chloride');
 
+insert into vic.normalized_vaccine_components (component_name) values ('Neisseria meningitidis C');
+insert into vic.normalized_vaccine_components (component_name) values ('Neisseria meningitidis Y');
+insert into vic.normalized_vaccine_components (component_name) values ('trometamol HCl');
 
 ******* 
 
@@ -274,6 +276,7 @@ insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_me
 
 insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (9,'pertussis antigen',25,'mcg');
 insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (9,'pertactin',8,'mcg');
+insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (9,'filamentous hemagglutinin',25,'mcg');
 insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (9,'diphtheria toxoid',25,'Lf');
 insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (9,'tetanus toxoid',10,'Lf');
 insert into vic.vaccine_components (vaccine_id, vaccine_component, dose, dose_measurement) values (9,'formaldehyde',100,'mcg');
@@ -426,6 +429,7 @@ WI-38 cells
 3.00 log10 TCID50 of rubella virus
 3.99 log10 PFU of Oka/Merck varicella virus
 
+
 -- M-M-R II
 
 hydrolyzed gelatin 14.5 mg
@@ -493,7 +497,15 @@ bovine calf serum
 
 
 
+Menhibrix
 
+5 mcg Neisseria meningitidis C
+5 mcg Neisseria meningitidis Y
+2.5 mcg Hib polysaccharide 
+17.25 mcg tetanus toxoid
+96.8 mcg trometamol HCl
+12.6 mg sucrose
+0.72 mcg formaldehyde
 
 
 
